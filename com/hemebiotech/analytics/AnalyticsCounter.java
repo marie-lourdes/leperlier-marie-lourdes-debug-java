@@ -10,6 +10,11 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		
 	
 	public static void main(String args[]) throws Exception {
+        // test in the main fonction the output of listSymptom, so create the instance of writeSymptomDataToFile and the method displayListSymptoms
+		WriteSymptomDataToFile listSymptom = new WriteSymptomDataToFile();
+		listSymptom.displayListSymptoms();
+		System.out.println( listSymptom);
+
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
