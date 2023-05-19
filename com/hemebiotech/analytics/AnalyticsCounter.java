@@ -5,16 +5,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	
-	private static int rashCount = 0;		
-	private static int pupilCount = 0;		
+	//private static int headacheCount = 0;	
+	//private static int rashCount = 0;		
+	//private static int pupilCount = 0;		
 	
 	public static void main(String args[]) throws Exception {
         // test in the main fonction the output of listSymptom, so create the instance of writeSymptomDataToFile and the method displayListSymptoms
-		WriteSymptomDataToFile listSymptom = new WriteSymptomDataToFile();
+	    WriteSymptomDataToFile listSymptom = new WriteSymptomDataToFile();
 		listSymptom.countSymptomsOccurrences();
 		System.out.println( listSymptom);
-
+/**
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
@@ -43,6 +43,6 @@ public class AnalyticsCounter {
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		writer.close();*/
 	}
 }
