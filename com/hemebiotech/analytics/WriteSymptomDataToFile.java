@@ -65,7 +65,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 break;
 				case "stiff neck": mapSymptomsOccurences.put(symptom,  ++stiffNeckCount);
                 break;
-				case "cough"-> mapSymptomsOccurences.put(symptom, ++coughCount);
+				case "cough": mapSymptomsOccurences.put(symptom, ++coughCount);
                 break;
 				case "insomnia": mapSymptomsOccurences.put(symptom, ++insomniaCount);
                 break;
@@ -73,7 +73,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 break;
 				case "constricted pupils": mapSymptomsOccurences.put(symptom, ++constrictedPupilsCount);
                 break;
-				case "nausea"->	mapSymptomsOccurences.put(symptom, nauseaCount++);
+				case "nausea":	mapSymptomsOccurences.put(symptom, nauseaCount++);
                 break;
 				case "shortness of breath": mapSymptomsOccurences.put(symptom, ++shortnessOfBreathCount);
                 break;
