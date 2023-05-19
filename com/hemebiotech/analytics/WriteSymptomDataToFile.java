@@ -6,11 +6,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
 
+import java.util.HashMap;
+
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
-    static ReadSymptomDataFromFile symptomsData;
-	static ArrayList<String> listSymptoms;
-    static Map<String, Integer> mapSymptomsOccurences = new HashMap<String,Integer>();
+	static ReadSymptomDataFromFile symptomsData;
+	static ArrayList<String> readListSymptoms;
+	static Map<String, Integer> mapSymptomsOccurences = new HashMap<String,Integer>();
+   
 	
 	public WriteSymptomDataToFile() {
 		
@@ -46,7 +49,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		int rapidHeartRateCount=0;
 		int rashCount=0;
         //boucle pour compter les occurence de la liste généré par la methode de ReadSymptomDataFromFile
-		for( String symptom: readListSymptoms ) {
+		for( String symptom:readListSymptoms ) {
 		
 			switch(symptom) {
 				case "fever": mapSymptomsOccurences.put(symptom, ++feverCount);
