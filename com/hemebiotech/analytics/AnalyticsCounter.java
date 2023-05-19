@@ -12,7 +12,7 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
         // test in the main fonction the output of listSymptom, so create the instance of writeSymptomDataToFile and the method displayListSymptoms
 		WriteSymptomDataToFile listSymptom = new WriteSymptomDataToFile();
-		listSymptom.displayListSymptoms();
+		listSymptom.countSymptomsOccurrences();
 		System.out.println( listSymptom);
 
 		// first get input
