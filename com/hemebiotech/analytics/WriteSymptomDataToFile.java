@@ -29,7 +29,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		readListSymptoms= symptomsData.getSymptoms();
 		mapSymptomsOccurences= new TreeMap<String,Integer>();
        
-        //boucle pour compter les occurence de la liste généré par la methode de ReadSymptomDataFromFile
+        // creer une boucle qui ajoute la liste listSymptoms clé symptom et value number occurence dans une TreeMap
 		for( String symptom:readListSymptoms ) {
             if(!mapSymptomsOccurences.containsKey(symptom)) {
                 mapSymptomsOccurences.put(symptom,1);
@@ -39,6 +39,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             }
 								
 		}
+        
+        //La boucle parcourt la mapSymptomsOccurrence et affiche les symptoms et  le nombre d occurrence 
 		for( Map.Entry<String, Integer> mapSymptom: mapSymptomsOccurences.entrySet() ) {
 			
 			System.out.println("Symptome: " + mapSymptom.getKey() + " ,Occurence: " + mapSymptom.getValue());		
