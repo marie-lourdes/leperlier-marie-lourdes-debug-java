@@ -3,17 +3,24 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Map;
+import java.util.List;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
+    //Variables ajoutés et necessaires à la methodes countSymtomsOccurrence crée par marie-lourdes
+	private static ReadSymptomDataFromFile symptomsData;
+	private static List<String> readListSymptoms;
+	private static  Map<String, Integer> mapSymptomsOccurences;
+    //variables implémenté par Alex ainsi que le code de la fonction main
 	private static int headacheCount = 0;	
 	private static int rashCount = 0;		
 	private static int pupilCount = 0;		
 	
 	public static void main(String args[]) throws Exception {
-       // test the output of listSymptom and count number of occurences in alphabetical order , 
-       //so create the instance of the class  writeSymptomDataToFile and call the method countSymptomsOccurrences() of this class in the instance
-	    WriteSymptomDataToFile listSymptoms = new WriteSymptomDataToFile();
-		listSymptoms.countSymptomsOccurrences();
+        // test the output of listSymptom and count number of occurences in alphabetical order , 
+	    //call the method countSymptomsOccurrences() of this class in the instance
+		countSymptomsOccurrences();
 	
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
@@ -44,6 +51,32 @@ public class AnalyticsCounter {
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
+	}
+
+    	public static void countSymptomsOccurrences() {
+        //instantiation de la class ReadSymptomDtaFromFile et utilisation de la methode de l interface implémenté par la class ReadSymptomDataFromFile
+	   // Creation de le TreeMap pour ajouter les symptoms et compter les occurrences des symptoms du fichier symptoms.txt dans l'ordre alphabetique
+		symptomsData = new ReadSymptomDataFromFile("symptoms.txt");
+		readListSymptoms= symptomsData.getSymptoms();
+		mapSymptomsOccurences= new TreeMap<String,Integer>();
+       
+        // creer une boucle qui ajoute la liste listSymptoms clé symptom et value number occurence dans une TreeMap
+		for( String symptom:readListSymptoms ) {
+            if(!mapSymptomsOccurences.containsKey(symptom)) {
+                mapSymptomsOccurences.put(symptom,1);
+            }else {
+                int numberOfOccurrencesSymptom= mapSymptomsOccurences.get(symptom);
+                mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
+            }
+								
+		}
+        
+        //La boucle parcourt la mapSymptomsOccurrence et affiche les symptoms et  le nombre d occurrence 
+		for( Map.Entry<String, Integer> mapSymptom: mapSymptomsOccurences.entrySet() ) {
+			
+			System.out.println("Symptome: " + mapSymptom.getKey() + " ,Occurence: " + mapSymptom.getValue());		
+			
+		}
 	}
 
 }
