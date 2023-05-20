@@ -5,23 +5,23 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
-
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	static ReadSymptomDataFromFile symptomsData;
 	static ArrayList<String> readListSymptoms;
 	static Map<String, Integer> mapSymptomsOccurences;
-   
 	
 	public WriteSymptomDataToFile() {
 		
 	}
+
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 		
 	}
+
 	public void countSymptomsOccurrences() {
         //instantiation de la class ReadSymptomDtaFromFile et utilisation de la methode de l interface implémenté par la class ReadSymptomDataFromFile
 	   // Creation de le TreeMap pour ajouter les symptoms et compter les occurrences des symptoms du fichier symptoms.txt
