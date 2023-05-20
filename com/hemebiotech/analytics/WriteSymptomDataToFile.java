@@ -26,19 +26,18 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
        
         //boucle pour compter les occurence de la liste généré par la methode de ReadSymptomDataFromFile
 		for( String symptom:readListSymptoms ) {
-		
-			
-			}
-			
+            if(!mapSymptomsOccurences.containsKey(symptom)) {
+                mapSymptomsOccurences.put(symptom,1);
+            }else {
+                int numberOfOccurrencesSymptom= mapSymptomsOccurences.get(symptom);
+                mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
+            }
+								
 		}
 		for( Map.Entry<String, Integer> mapSymptom: mapSymptomsOccurences.entrySet() ) {
 			
 			System.out.println("Symptome: " + mapSymptom.getKey() + " ,Occurence: " + mapSymptom.getValue());		
 			
 		}
-		
-	
-	}						
-			
-	
+	}							
 }
