@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-    //Variables ajoutés et necessaires à la methodes countSymtomsOccurrence crée par marie-lourdes
+    //Variables ajoutés et necessaires à la methode countSymtomsOccurrence implémentés par marie-lourdes
 	private static ReadSymptomDataFromFile symptomsData;
 	private static List<String> readListSymptoms;
 	private static  Map<String, Integer> mapSymptomsOccurences;
-    //variables implémenté par Alex ainsi que le code de la fonction main
+
+    //variables implémentés par Alex ainsi que le code de la fonction main
 	private static int headacheCount = 0;	
 	private static int rashCount = 0;		
 	private static int pupilCount = 0;		
