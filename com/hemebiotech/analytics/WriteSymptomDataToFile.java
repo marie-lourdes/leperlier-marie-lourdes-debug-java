@@ -12,7 +12,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	static ReadSymptomDataFromFile symptomsData;
 	static ArrayList<String> readListSymptoms;
-	static Map<String, Integer> mapSymptomsOccurences = new HashMap<String,Integer>();
+	static Map<String, Integer> mapSymptomsOccurences;
    
 	
 	public WriteSymptomDataToFile() {
@@ -23,6 +23,11 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		
 	}
 	public void countSymptomsOccurrences() {
+        //instantiation de la class ReadSymptomDtaFromFile et utilisation de la methode de l interface implémenté par la class ReadSymptomDataFromFile
+	   // Creation de le TreeMap pour ajouter les symptoms et compter les occurrences des symptoms du fichier symptoms.txt
+		symptomsData = new ReadSymptomDataFromFile("symptoms.txt");
+		readListSymptoms= symptomsData.getSymptoms();
+		mapSymptomsOccurences= new TreeMap<String,Integer>();
        
         //boucle pour compter les occurence de la liste généré par la methode de ReadSymptomDataFromFile
 		for( String symptom:readListSymptoms ) {
