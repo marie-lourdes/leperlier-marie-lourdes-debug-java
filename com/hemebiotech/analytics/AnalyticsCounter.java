@@ -72,14 +72,8 @@ public class AnalyticsCounter {
                 mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
             }
 								
-		}
-        
-        //La boucle parcourt la mapSymptomsOccurrence et affiche les symptoms et  le nombre d occurrence 
-		for( Map.Entry<String, Integer> mapSymptom: mapSymptomsOccurences.entrySet() ) {
-			
-			System.out.println("Symptome: " + mapSymptom.getKey() + " ,Occurence: " + mapSymptom.getValue());		
-			
-		}
+		} 
+       
 	}
 
 }
