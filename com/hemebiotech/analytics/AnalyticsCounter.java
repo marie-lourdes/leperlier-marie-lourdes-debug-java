@@ -11,7 +11,8 @@ public class AnalyticsCounter {
     //Variables ajoutés et necessaires à la methode countSymtomsOccurrence implémentés par marie-lourdes
 	private static ReadSymptomDataFromFile symptomsData;
 	private static List<String> readListSymptoms;
-	private static  Map<String, Integer> mapSymptomsOccurences;
+	private static  Map<String, Integer> mapSymptomsOccurences; 	
+	private static WriteSymptomDataToFile mapSymptomsData = new WriteSymptomDataToFile();
 
     //variables implémentés par Alex ainsi que le code de la fonction main
 	private static int headacheCount = 0;	
