@@ -21,10 +21,12 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
         Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator();
-	    while (iteratorMap.hasNext()) {
-	        Map.Entry<String, Integer> entrySymptomAndNumberOfOccurrences = iteratorMap.next();
-	        System.out.println("number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue());
-	    }
+	  
+        //Iteration with a method forEachRemaining  which call the  function lambda to execute instruction for each element of each iteration , so can get a clear and readable code instead of using loop while
+		//@param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer of each entry of the instance iterator
+        iteratorMap.forEachRemaining(
+			(entrySymptomAndNumberOfOccurrences)->  System.out.println("number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue())
+		);
 		
 	}
 
