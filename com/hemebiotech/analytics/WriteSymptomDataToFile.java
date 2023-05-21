@@ -23,7 +23,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
         Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator();
 	    while (iteratorMap.hasNext()) {
 	        Map.Entry<String, Integer> entrySymptomAndNumberOfOccurrences = iteratorMap.next();
-	        System.out.println("number of " + entrySymptomAndNumberOfOccurrences.getKey() + " : " + entrySymptomAndNumberOfOccurrences.getValue());
+	        System.out.println("number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue());
 	    }
 		
 	}
