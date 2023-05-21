@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-    //Variables ajoutés et necessaires à la methode countSymtomsOccurrence implémentés par marie-lourdes
+    //Variables added and necessary for the countSymtomsOccurrence method implemented by marie-lourdes
 	private static ReadSymptomDataFromFile symptomsData;
 	private static List<String> readListSymptoms;
 	private static  Map<String, Integer> mapSymptomsOccurences; 
@@ -16,7 +16,7 @@ public class AnalyticsCounter {
 	//to use the ISymptomWriter interface method implemented by the class	
 	private static WriteSymptomDataToFile mapSymptomsData = new WriteSymptomDataToFile();
 
-    //variables implémentés par Alex ainsi que le code de la fonction main
+    //variables implemented by Alex as well as the code of the main function
 	private static int headacheCount = 0;	
 	private static int rashCount = 0;		
 	private static int pupilCount = 0;		
@@ -61,14 +61,15 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 
-    	public static void countSymptomsOccurrences() {
-        //instantiation de la class ReadSymptomDtaFromFile et utilisation de la methode de l interface implémenté par la class ReadSymptomDataFromFile
-	   // Creation de le TreeMap pour ajouter les symptoms et compter les occurrences des symptoms du fichier symptoms.txt dans l'ordre alphabetique
+    public static void countSymptomsOccurrences() {
+		//instantiation of the class ReadSymptomDtaFromFile and use of the method of the interface implemented by the class ReadSymptomDataFromFile
+		// creation of the TreeMap to add the symptoms and count the occurrences of the symptoms in the file symptoms.txt in alphabetical order
 		symptomsData = new ReadSymptomDataFromFile("symptoms.txt");
 		readListSymptoms= symptomsData.getSymptoms();
 		mapSymptomsOccurences= new TreeMap<String,Integer>();
        
-        // creer une boucle qui ajoute la liste listSymptoms clé symptom et value number occurence dans une TreeMap
+		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
+		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
 		for( String symptom:readListSymptoms ) {
             if(!mapSymptomsOccurences.containsKey(symptom)) {
                 mapSymptomsOccurences.put(symptom,1);
