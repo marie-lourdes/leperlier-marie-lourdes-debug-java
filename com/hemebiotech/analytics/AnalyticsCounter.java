@@ -22,7 +22,7 @@ public class AnalyticsCounter {
         // test the output of listSymptom and count number of occurences in alphabetical order , 
 	    //call the method countSymptomsOccurrences() of this class in the instance
 		countSymptomsOccurrences();
-        //call the method of interface ISymptomWriter implemented by the class WriteSymptomDataToFile  with Iterator to iterate and  display key -symptom and value - number of occurrences of each symptom
+        //call the method of interface ISymptomWriter implemented by the class WriteSymptomDataToFile  
         mapSymptomsData.writeSymptoms(mapSymptomsOccurences);
 	
 		// first get input

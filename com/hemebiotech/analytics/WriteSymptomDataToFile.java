@@ -17,13 +17,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		
 	}
 
-    // redéfinition de la methode writeSymptoms de l interface ISymptomWriter 
+    // Override the  method writeSymptoms of ISymptomWriter interface with Iterator to iterate and  display key -symptom and value - number of occurrences of each symptom
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
-        Iterator<Map.Entry<String, Integer>> iterator = symptoms.entrySet().iterator();
-	    while (iterator.hasNext()) {
-	        Map.Entry<String, Integer> entry = iterator.next();
-	        System.out.println(entry.getKey() + ":" + entry.getValue());
+        Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator();
+	    while (iteratorMap.hasNext()) {
+	        Map.Entry<String, Integer> entrySymptomAndNumberOfOccurrences = iteratorMap.next();
+	        System.out.println(entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue());
 	    }
 		
 	}
