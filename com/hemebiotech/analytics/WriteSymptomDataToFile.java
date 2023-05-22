@@ -10,7 +10,7 @@ import java.util.TreeMap;
 public class WriteSymptomDataToFile implements ISymptomWriter {
     String filePath;
 	
-	//Constructor
+	// Constructor
 	public WriteSymptomDataToFile(String filePath) {
 		this.filePath= filePath;
 		
@@ -19,11 +19,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
         Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator();
-
+        // Check if file exist and possible error in instruction try and intercept error in a intruction catch and print explanation of error
         if (filePath != null) {
             try {
-                //Create object reader used by bufferedReader which write line by line on file indicated in the filePath
-                FileWriter fileWriter = new FileWriter(filePath);	
+                // Create object writer withe path of file and second argument to write without remove all previous content 
+                // the object writer is used by bufferedReader which write line by line on file indicated in the filePath
+                
+                FileWriter fileWriter = new FileWriter(filePath, true);	
                 BufferedWriter writer = new BufferedWriter (fileWriter);
             
             } catch (IOException e) {
@@ -31,8 +33,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             }
 		}
 	  
-        //@param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
-		//the consumer consume  each entry of the instance iterator
+        // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
+		// the consumer consume  each entry of the instance iterator
         iteratorMap.forEachRemaining(
 			(entrySymptomAndNumberOfOccurrences)->  System.out.println(
                 "number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
