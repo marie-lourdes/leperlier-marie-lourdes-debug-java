@@ -9,8 +9,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
 
-public class AnalyticsCounter {
-    //Variables added and necessary for the countSymtomsOccurrence method implemented by marie-lourdes
+public class AnalyticsCounter { 
 	private static ReadSymptomDataFromFile readerSymptomsData;
 	private static List<String> readListSymptoms;
 	private static  Map<String, Integer> mapSymptomsOccurences; 
