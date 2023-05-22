@@ -20,9 +20,9 @@ public class AnalyticsCounter {
 	private static WriteSymptomDataToFile writerSymptomsData = new WriteSymptomDataToFile("result.out");
 
     //variables implemented by Alex as well as the code of the main function
-	private static int headacheCount = 0;	
+	/**private static int headacheCount = 0;	
 	private static int rashCount = 0;		
-	private static int pupilCount = 0;		
+	private static int pupilCount = 0;	*/	
 	
 	public static void main(String args[]) throws Exception {
         
@@ -61,12 +61,14 @@ public class AnalyticsCounter {
 			line = reader.readLine();	// get another symptom
 		}
 		
-		// next generate output
+		/**
+        // next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
+        */
 	}
 
     public static void countSymptomsOccurrences(Map<String,Integer> symptoms) {
