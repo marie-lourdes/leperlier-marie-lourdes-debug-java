@@ -19,6 +19,17 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
         Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator();
+
+        if (filePath != null) {
+            try {
+                //Create object reader used by bufferedReader which write line by line on file indicated in the filePath
+                FileWriter fileWriter = new FileWriter(filePath);	
+                BufferedWriter writer = new BufferedWriter (fileWriter);
+            
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+		}
 	  
         //@param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
 		//the consumer consume  each entry of the instance iterator
