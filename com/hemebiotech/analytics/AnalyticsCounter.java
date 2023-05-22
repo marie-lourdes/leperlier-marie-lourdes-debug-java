@@ -17,7 +17,7 @@ public class AnalyticsCounter {
     private static Map<String,Integer> mapSymptomsOccurencesSorted; 
 	//instantiation of the WriteSymptomDataToFile class with the mapSymptomsData reference 
 	//to use the ISymptomWriter interface method implemented by the class	
-	private static WriteSymptomDataToFile writerSymptomsData = new WriteSymptomDataToFile();
+	private static WriteSymptomDataToFile writerSymptomsData = new WriteSymptomDataToFile("result.out");
 
     //variables implemented by Alex as well as the code of the main function
 	private static int headacheCount = 0;	
