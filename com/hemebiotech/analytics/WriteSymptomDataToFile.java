@@ -24,13 +24,20 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             try {
                 //Create object Iterator to iterate on each entry of the mapSymptomsOccurencesSorted and write each entry in file
                 Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator(); 
-                // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
-		        // the consumer consume  each entry of the instance iterator
                 
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
                 FileWriter fileWriter = new FileWriter(filePath, true);	
                 BufferedWriter writer = new BufferedWriter (fileWriter);
+
+                // Iteration with a method forEachRemaining  which call the  function lambda to execute instruction for each element of each iteration , so can get a clear and readable code instead of using loop while
+                // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
+                // the consumer consume  each entry of the instance iterator
+                iteratorMap.forEachRemaining(
+			        (entrySymptomAndNumberOfOccurrences)->  System.out.println(
+                        "number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
+                )
+		);
             
             } catch (IOException e) {
                 e.printStackTrace();
@@ -38,11 +45,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		}
         
         
-        iteratorMap.forEachRemaining(
-			(entrySymptomAndNumberOfOccurrences)->  System.out.println(
-                "number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
-                )
-		);
 		
 	}
 
