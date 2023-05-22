@@ -8,15 +8,13 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
-
-	static ReadSymptomDataFromFile symptomsData;
-	static List<String> readListSymptoms;
-	static Map<String, Integer> mapSymptomsOccurences;
+    String filePath;
 	
-	public WriteSymptomDataToFile() {
+	//Constructor
+	public WriteSymptomDataToFile(String filePath) {
+		this.filePath= filePath;
 		
 	}
-
     // Override the  method writeSymptoms of ISymptomWriter interface with Iterator to iterate and  display key -symptom and value - number of occurrences of each symptom
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
