@@ -16,7 +16,16 @@ public class AnalyticsCounter {
     private static Map<String,Integer> mapSymptomsOccurencesSorted; 
 	//instantiation of the WriteSymptomDataToFile class with the mapSymptomsData reference 
 	//to use the ISymptomWriter interface method implemented by the class	
-	private static WriteSymptomDataToFile writerSymptomsData; 
+	private static WriteSymptomDataToFile writerSymptomsData;
+
+    public ISymptomReader reader;
+	public ISymptomWriter writer;
+	
+	//constructor
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader= reader;
+		this.writer= writer;	
+	} 
 			
 	public static void main(String args[]) throws Exception {
         writerSymptomsData = new WriteSymptomDataToFile();
