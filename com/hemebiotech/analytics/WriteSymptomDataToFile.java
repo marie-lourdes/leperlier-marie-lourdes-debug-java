@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
     String filePath;
@@ -28,26 +30,25 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
                 //Create object Iterator to iterate on each entry of the mapSymptomsOccurencesSorted and write each entry in file
                 Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator(); 
-
+             
                 // Iteration with a method forEachRemaining  which call the  function lambda to execute instruction for each element of each iteration , so can get a clear and readable code instead of using loop while
                 // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
                 // the consumer consume  each entry of the instance iterator
                 iteratorMap.forEachRemaining(
-		        	(entrySymptomAndNumberOfOccurrences)-> { 
-		        		System.out.println(
-		        			"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
-		        		);
-		        		//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "	
-		        		try {
-							writer.write(entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()+ "\n");
-							
-                           
-						} catch (IOException e) {
-							e.printStackTrace();
-						}	     	        			
-		        	}
-		        );	
-				 writer.close();	     
+                    (entrySymptomAndNumberOfOccurrences)-> { 
+		        			System.out.println(
+		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
+		        			);
+		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "		
+		        			try {
+									writer.write(entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue());
+									writer.newLine();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}	        			
+		        		}
+		        	);	
+				writer.close();		        	     
             } catch (IOException e) {
                 e.printStackTrace();
             }
