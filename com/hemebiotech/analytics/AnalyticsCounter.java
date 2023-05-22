@@ -43,8 +43,12 @@ public class AnalyticsCounter {
        writerSymptomsData.writeSymptoms( mapSymptomsOccurencesSorted);
 		
 	}
+    
+    public void getSymptoms() {
+		reader.getSymptoms();
+	}
 
-    public static void countSymptomsOccurrences(Map<String,Integer> symptoms) {
+    public  void countSymptomsOccurrences(Map<String,Integer> symptoms) {
 		//instantiation of the class ReadSymptomDtaFromFile and use of the method of the interface implemented by the class ReadSymptomDataFromFile
 		readerSymptomsData = new ReadSymptomDataFromFile("symptoms.txt");
 		readListSymptoms= readerSymptomsData.getSymptoms();
@@ -63,7 +67,7 @@ public class AnalyticsCounter {
        
 	}
 
-    public static void sortMapSymptoms(Map<String,Integer> symptoms) {
+    public  void sortMapSymptoms(Map<String,Integer> symptoms) {
        mapSymptomsOccurencesSorted.putAll( symptoms);   
 	}
 
