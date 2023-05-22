@@ -27,26 +27,31 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
-                FileWriter fileWriter = new FileWriter(filePath, true);	
+                FileWriter fileWriter = new FileWriter(filePath, false);	
                 BufferedWriter writer = new BufferedWriter (fileWriter);
 
                 // Iteration with a method forEachRemaining  which call the  function lambda to execute instruction for each element of each iteration , so can get a clear and readable code instead of using loop while
                 // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
                 // the consumer consume  each entry of the instance iterator
                 iteratorMap.forEachRemaining(
-			        (entrySymptomAndNumberOfOccurrences)->  System.out.println(
-                        "number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
-                )
-		);
+		        		(entrySymptomAndNumberOfOccurrences)-> { 
+		        			System.out.println(
+		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
+		        			);
+		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "	
+		        			try {
+								writer.write("number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue());
+								writer.newLine();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}	        			
+		        		}
+		        	);	
+					writer.close();	
             
             } catch (IOException e) {
                 e.printStackTrace();
             }
-		}
-        
-        
-		
-	}
-
-							
+		}		
+	}							
 }
