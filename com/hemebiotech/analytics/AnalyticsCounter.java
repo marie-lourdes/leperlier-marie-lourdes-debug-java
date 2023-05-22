@@ -3,9 +3,11 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.TreeMap;
+
 
 public class AnalyticsCounter {
     //Variables added and necessary for the countSymtomsOccurrence method implemented by marie-lourdes
@@ -66,7 +68,7 @@ public class AnalyticsCounter {
 		// creation of the TreeMap to add the symptoms and count the occurrences of the symptoms in the file symptoms.txt in alphabetical order
 		readerSymptomsData = new ReadSymptomDataFromFile("symptoms.txt");
 		readListSymptoms= readerSymptomsData.getSymptoms();
-		mapSymptomsOccurences= new TreeMap<String,Integer>();
+		mapSymptomsOccurences= new HashMapMap<String,Integer>();
        
 		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
 		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
