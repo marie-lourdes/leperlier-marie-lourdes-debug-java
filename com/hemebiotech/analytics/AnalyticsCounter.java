@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 public class AnalyticsCounter { 
-	private static ReadSymptomDataFromFile readerSymptomsData;
+	private static ISymptomReader readerSymptomsData;
 	private static List<String> readListSymptoms;
 	private static  Map<String, Integer> mapSymptomsOccurences; 
     private static Map<String,Integer> mapSymptomsOccurencesSorted; 
@@ -18,23 +18,26 @@ public class AnalyticsCounter {
 	//to use the ISymptomWriter interface method implemented by the class	
 	private static WriteSymptomDataToFile writerSymptomsData;
 
-    public ISymptomReader reader;
-	public ISymptomWriter writer;
+    public static ISymptomReader reader;
+	public static ISymptomWriter writer;
 	
 	//constructor
-	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader= reader;
 		this.writer= writer;	
 	} 
 			
 	public static void main(String args[]) throws Exception {
+        //instantiation of the class ReadSymptomDtaFromFile and use of the method of the interface implemented by the class ReadSymptomDataFromFile
+		readerSymptomsData = new ReadSymptomDataFromFile("symptoms.txt");
+		readListSymptoms= readerSymptomsData.getSymptoms();
         writerSymptomsData = new WriteSymptomDataToFile();
         mapSymptomsOccurences= new HashMap<String,Integer>();
         // creation of the TreeMap to arrange  the content of mapSymptomsOccurences in alphabetical order
         mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
 	    // call the method countSymptomsOccurrences()
         // Used to add symptoms and count the occurences in a HashMap called mapSymptomsOccurences
-		countSymptomsOccurrences(mapSymptomsOccurences);
+		countSymptomsOccurrences(readListSymptoms);
         // Used to sort the mapSymptomsOccurences and generate a TreeMap called mapSymptomsOccurencesSorted
         sortMapSymptoms(mapSymptomsOccurences);
         // call the method of interface ISymptomWriter implemented by the class WriteSymptomDataToFile 
@@ -44,15 +47,11 @@ public class AnalyticsCounter {
 		
 	}
     
-    public void getSymptoms() {
+    public static void getSymptoms() {
 		reader.getSymptoms();
 	}
 
-    public  void countSymptomsOccurrences(Map<String,Integer> symptoms) {
-		//instantiation of the class ReadSymptomDtaFromFile and use of the method of the interface implemented by the class ReadSymptomDataFromFile
-		readerSymptomsData = new ReadSymptomDataFromFile("symptoms.txt");
-		readListSymptoms= readerSymptomsData.getSymptoms();
- 
+    public static Map<String,Integer> (List<String> symptoms) {
 		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
 		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
 		for( String symptom:readListSymptoms ) {
@@ -64,10 +63,10 @@ public class AnalyticsCounter {
             }
 								
 		} 
-       
+        return  mapSymptomsOccurences;
 	}
 
-    public  void sortMapSymptoms(Map<String,Integer> symptoms) {
+    public static  void sortMapSymptoms(Map<String,Integer> symptoms) {
        mapSymptomsOccurencesSorted.putAll( symptoms);   
 	}
 
