@@ -37,7 +37,7 @@ public class AnalyticsCounter {
         mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
 	    // call the method countSymptomsOccurrences()
         // Used to add symptoms and count the occurences in a HashMap called mapSymptomsOccurences
-		countSymptomsOccurrences(readListSymptoms);
+		countSymptoms(readListSymptoms);
         // Used to sort the mapSymptomsOccurences and generate a TreeMap called mapSymptomsOccurencesSorted
         sortMapSymptoms(mapSymptomsOccurences);
         // call the method of interface ISymptomWriter implemented by the class WriteSymptomDataToFile 
@@ -51,7 +51,7 @@ public class AnalyticsCounter {
 		reader.getSymptoms();
 	}
 
-    public static Map<String,Integer> (List<String> symptoms) {
+    public static Map<String,Integer> countSymptoms(List<String> symptoms) {
 		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
 		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
 		for( String symptom:readListSymptoms ) {
@@ -60,8 +60,7 @@ public class AnalyticsCounter {
             }else {
                 int numberOfOccurrencesSymptom= mapSymptomsOccurences.get(symptom);
                 mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
-            }
-								
+            }							
 		} 
         return  mapSymptomsOccurences;
 	}
