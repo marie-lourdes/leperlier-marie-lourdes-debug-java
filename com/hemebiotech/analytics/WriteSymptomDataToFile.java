@@ -38,7 +38,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                     (entrySymptomAndNumberOfOccurrences)-> { 
 		        			System.out.println(
 		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
-		        			);
+		        			); 
+                                              
 		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "		
 		        			try {
 									writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
@@ -54,7 +55,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             }
           
 		} else {
-            System.error.println("No symptoms listed, maybe the symptoms.txt file is empty or there's problem in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences")
+            System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences");
         }		
 	}							
 }
