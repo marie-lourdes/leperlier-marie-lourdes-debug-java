@@ -22,7 +22,8 @@ public class AnalyticsCounter {
     public  ISymptomReader reader;
 	public  ISymptomWriter writer;
 	
-	//constructor
+	//constructor with attributs class reader and writer - type interface implemented by classes ReadSymptomDataFromFile and class WriterSymptomDataToFile
+    //these attributs will refernece and instance of the classes correspondant to use its interfaces
 	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader= reader;
 		this.writer= writer;	
@@ -49,8 +50,7 @@ public class AnalyticsCounter {
 	}
     
     public  List<String> getSymptoms() {
-		  return this.reader.getSymptoms();
-        
+		  return this.reader.getSymptoms();    
 	}
 
     public  Map<String,Integer> countSymptoms(List<String> symptoms) {
