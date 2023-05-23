@@ -54,7 +54,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             }
           
 		} else {
-            System.error.println("No symptoms listed, the symptoms.txt file is empty")
+            System.error.println("No symptoms listed, maybe the symptoms.txt file is empty or there's problem in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences")
         }		
 	}							
 }
