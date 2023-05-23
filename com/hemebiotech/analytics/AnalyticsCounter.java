@@ -17,7 +17,7 @@ public class AnalyticsCounter {
 
 	//instantiation of the WriteSymptomDataToFile class with the mapSymptomsData reference 
 	//to use the ISymptomWriter interface method implemented by the class	
-	public  ISymptomWriter writerSymptomsData;
+	//public  ISymptomWriter writerSymptomsData;
 
     public  ISymptomReader reader;
 	public  ISymptomWriter writer;
@@ -49,11 +49,11 @@ public class AnalyticsCounter {
 	*/	
 	}
     
-    public  List<String> getSymptoms() {
+    public List<String> getSymptoms() {
 		  return this.reader.getSymptoms();    
 	}
 
-    public  Map<String,Integer> countSymptoms(List<String> symptoms) {
+    public Map<String,Integer> countSymptoms(List<String> symptoms) {
         Map<String,Integer> mapSymptomsOccurences= new HashMap<String,Integer>();
 		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
 		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
@@ -74,9 +74,8 @@ public class AnalyticsCounter {
        return mapSymptomsOccurencesSorted;  
 	}
 
-    public  void writeSymptoms(Map<String,Integer> symptoms) { 
+    public void writeSymptoms(Map<String,Integer> symptoms) { 
        this.writer.writeSymptoms(symptoms);
-
     }
 
 }
