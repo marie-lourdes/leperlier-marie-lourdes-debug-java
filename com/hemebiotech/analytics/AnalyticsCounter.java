@@ -23,8 +23,8 @@ public class AnalyticsCounter {
 	
 	//constructor
 	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
-		this.reader= new ReadSymptomDataFromFile("symptoms.txt");
-		this.writer= new WriteSymptomDataToFile();	
+		this.reader= reader;
+		this.writer= writer;	
 	} 
 			
 	public static void main(String args[]) throws Exception {
