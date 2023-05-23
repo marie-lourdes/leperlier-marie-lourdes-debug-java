@@ -10,10 +10,11 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 public class AnalyticsCounter { 
-	private static ISymptomReader readerSymptomsData;
+/**	private static ISymptomReader readerSymptomsData;
 	private static List<String> readListSymptoms;
 	public   Map<String, Integer> mapSymptomsOccurences; 
-    private static Map<String,Integer> mapSymptomsOccurencesSorted; 
+    private static Map<String,Integer> mapSymptomsOccurencesSorted; */
+
 	//instantiation of the WriteSymptomDataToFile class with the mapSymptomsData reference 
 	//to use the ISymptomWriter interface method implemented by the class	
 	public  ISymptomWriter writerSymptomsData;
