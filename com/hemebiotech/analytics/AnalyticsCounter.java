@@ -48,7 +48,7 @@ public class AnalyticsCounter {
 	}
     
     public  List<String> getSymptoms() {
-		  return reader.getSymptoms();
+		  return this.reader.getSymptoms();
         
 	}
 
@@ -74,7 +74,7 @@ public class AnalyticsCounter {
 	}
 
     public  void writeSymptoms(Map<String,Integer> symptoms) { 
-        writer.writeSymptoms(symptoms);
+       this.writer.writeSymptoms(symptoms);
 
     }
 

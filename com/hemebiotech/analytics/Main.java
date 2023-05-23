@@ -9,9 +9,8 @@ public class main {
            ISymptomReader reader=new ReadSymptomDataFromFile("symptoms.txt");
            ISymptomWriter writer = new WriteSymptomDataToFile();
            AnalyticsCounter counter = new AnalyticsCounter(reader,writer); 
-           readListSymptoms= counter.getSymptoms;
-          counter.countSymptoms(readListSymptoms);
-           Map<String,Integer>mapSymptomsOccurences= new HashMap<String,Integer>();
-             counter.ortSymptoms(mapSymptomsOccurences);
+           List<String>readListSymptoms= counter.getSymptoms();
+           Map<String,Integer>mapSymptomsOccurences = counter.countSymptoms(readListSymptoms); 
+             counter.sortSymptoms(mapSymptomsOccurences);
         }
 }
