@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.nio.ByteBuffer;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.charset.StandardCharsets;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
     String filePath;
@@ -35,20 +37,23 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 // @param entrySymptomAndNumberOfOccurrences - type Map.Entry<String,Iteger> as a consumer (parameter of the method forEachRemaining used by the expression lambada)
                 // the consumer consume  each entry of the instance iterator
                 iteratorMap.forEachRemaining(
-                    (entrySymptomAndNumberOfOccurrences)-> { 
-		        			System.out.println(
-		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
-		        			); 
-                            try {
-								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
-								writer.newLine();
-							} catch (IOException e) {
+                    (entrySymptomAndNumberOfOccurrences)-> {      
+		        		System.out.println(
+		        			"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
+		        		); 
+                        try {
+                            String str= (String)entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue();
+                            ByteBuffer buffer = StandardCharsets.UTF_8.encode(str); 
+                            String utf8 = StandardCharsets.UTF_8.decode(buffer).toString();
+							writer.write(utf8);
+							writer.newLine();
+						} catch (IOException e) {
 								e.printStackTrace();
-							}	        			
-		        		}
-		        	);	
-				writer.close();
-                System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
+						}	        			
+		        	}
+		        );	
+			writer.close();
+            System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
             } catch (IOException e) {
                 e.printStackTrace();
             }
