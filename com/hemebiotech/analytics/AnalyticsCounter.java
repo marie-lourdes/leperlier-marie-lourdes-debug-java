@@ -68,7 +68,7 @@ public class AnalyticsCounter {
 	}
 
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
-     
+       Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
        mapSymptomsOccurencesSorted.putAll( symptoms);
        return mapSymptomsOccurencesSorted;  
 	}
