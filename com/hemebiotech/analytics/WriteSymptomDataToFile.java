@@ -40,7 +40,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
 		        			); 
                             try {
-								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
+								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + " : " + entrySymptomAndNumberOfOccurrences.getValue()));
 								writer.newLine();
 							} catch (IOException e) {
 								e.printStackTrace();
