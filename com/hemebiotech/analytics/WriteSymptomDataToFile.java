@@ -2,8 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -28,8 +26,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
                 FileWriter fileWriter = new FileWriter(filePath, false);	
-                BufferedWriter bufferedWriter = new BufferedWriter (fileWriter);
-                PrintWriter writer = new PrintWriter (bufferedWriter);
+                BufferedWriter writer = new BufferedWriter (fileWriter);
 
                 //Create object Iterator to iterate on each entry of the mapSymptomsOccurencesSorted and write each entry in file
                 Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator(); 
@@ -42,12 +39,12 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		        			System.out.println(
 		        				"number of " + entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue()
 		        			); 
-
-		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "		
-		        			
-								writer.print(entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()+"\n");
-								//writer.newLine();
-								        			
+                            try {
+								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
+								writer.newLine();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}	        			
 		        		}
 		        	);	
 				writer.close();
