@@ -53,9 +53,10 @@ public class AnalyticsCounter {
 	}
 
     public  Map<String,Integer> countSymptoms(List<String> symptoms) {
+        Map<String,Integer> mapSymptomsOccurences= new HashMap<String,Integer>();
 		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
 		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
-		for( String symptom:readListSymptoms ) {
+		for( String symptom:symptoms ) {
             if(!mapSymptomsOccurences.containsKey(symptom)) {
                 mapSymptomsOccurences.put(symptom,1);
             }else {
