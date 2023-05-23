@@ -2,6 +2,8 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,7 +28,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
                 FileWriter fileWriter = new FileWriter(filePath, false);	
-                BufferedWriter writer = new BufferedWriter (fileWriter);
+                BufferedWriter bufferedWriter = new BufferedWriter (fileWriter);
+                PrintWriter writer = new PrintWriter (bufferedWriter);
 
                 //Create object Iterator to iterate on each entry of the mapSymptomsOccurencesSorted and write each entry in file
                 Iterator<Map.Entry<String, Integer>> iteratorMap = symptoms.entrySet().iterator(); 
@@ -41,16 +44,14 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		        			); 
 
 		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "		
-		        			try {
-									writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
-									writer.newLine();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}	        			
+		        			
+								writer.print(entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()+"\n");
+								//writer.newLine();
+								        			
 		        		}
 		        	);	
 				writer.close();
-                System.out.println("The file result.out get all list of symtoms and their number of occurrences")		        	     
+                System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
             } catch (IOException e) {
                 e.printStackTrace();
             }
