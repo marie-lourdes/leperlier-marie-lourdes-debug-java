@@ -41,7 +41,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		        			);
 		        			//sub-bloc try/catch used to check possible error when the bufferedWriter called "writer" write in the file in each iteration of the map with Iterator interface  "		
 		        			try {
-									writer.write(entrySymptomAndNumberOfOccurrences.getKey() + ": " + entrySymptomAndNumberOfOccurrences.getValue());
+									writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + ":" + entrySymptomAndNumberOfOccurrences.getValue()));
 									writer.newLine();
 							} catch (IOException e) {
 								e.printStackTrace();
@@ -53,6 +53,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 e.printStackTrace();
             }
           
-		}		
+		} else {
+            System.error.println("No symptoms listed, the symptoms.txt file is empty")
+        }		
 	}							
 }
