@@ -35,23 +35,44 @@ public class AnalyticsCounter {
 
     public Map<String,Integer> countSymptoms(List<String> symptoms) {
         Map<String,Integer> mapSymptomsOccurences= new HashMap<String,Integer>();
-		// loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
-		// the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
-		for( String symptom:symptoms ) {
-            if(!mapSymptomsOccurences.containsKey(symptom)) {
-                mapSymptomsOccurences.put(symptom,1);
-            }else {
-                int numberOfOccurrencesSymptom= mapSymptomsOccurences.get(symptom);
-                mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
-            }							
-		} 
-        return  mapSymptomsOccurences;
+        if(!symptoms.isEmpty()){
+            try{
+                // loop For Each that adds the listSymptoms key symptom and value number occurrence in a TreeMap
+                // the number of occurrences is incremented if the symptoms is already present in the TreeMap called mapSymptomsOccurences otherwise 1 is added if the symptom does not exist in the TreeMap
+                for( String symptom:symptoms ) {
+                    if(!mapSymptomsOccurences.containsKey(symptom)) {
+                        mapSymptomsOccurences.put(symptom,1);
+                    }else {
+                        int numberOfOccurrencesSymptom= mapSymptomsOccurences.get(symptom);
+                        mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom+1);
+                    }							
+                }
+
+            }catch(Exception e){
+                System.err.println("an error occurred when calculating the list of symptoms and occurrences in the table mapSymptomsOccurences");
+                e.printStackTrace();    
+            }
+            return  mapSymptomsOccurences;
+        }else {
+            System.err.println("The list of symptoms is empty");
+        }
+	    
 	}
 
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
        Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
-       mapSymptomsOccurencesSorted.putAll( symptoms);
-       return mapSymptomsOccurencesSorted;  
+       if (!symptoms.isEmpty()){
+			try {
+				//used to to put all content of "mapSymptomsOccurences" in TreeMap "mapSymptomsOccurencesSorted" in alphabetical order	
+				mapSymptomsOccurencesSorted.putAll(symptoms);	
+			}catch(Exception e) {
+                System.err.println("an error occurred when sorting the mapSymptomsOccurences and adding in the table mapSymptomsOccurencesSorted");
+				e.printStackTrace();	
+			}
+            return mapSymptomsOccurencesSorted;
+		} else {
+            System.err.println("The mapSymptomsOccurences is empty");
+        }     
 	}
 
     public void writeSymptoms(Map<String,Integer> symptoms) { 
