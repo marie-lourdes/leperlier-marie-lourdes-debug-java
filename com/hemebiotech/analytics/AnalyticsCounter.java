@@ -50,7 +50,7 @@ public class AnalyticsCounter {
                     }
                 }
             }catch(NullPointerException e) {
-                System.err.println(" Yhe List of symptoms is empty: "+ e);
+                System.err.println("the readListSymptoms is empty: "+ e);
                 e.printStackTrace();
             }catch(Exception e){
                 System.err.println("an error occurred when calculating the list of symptoms and occurrences in the table mapSymptomsOccurences");
@@ -61,11 +61,11 @@ public class AnalyticsCounter {
 	}
 
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
-       Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
-       try {
+        Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
+       try {    
 			if (!symptoms.isEmpty()){
 				//used to to put all content of "mapSymptomsOccurences" in TreeMap "mapSymptomsOccurencesSorted" in alphabetical order	
-					mapSymptomsOccurencesSorted.putAll(symptoms);	
+					//mapSymptomsOccurencesSorted.putAll(symptoms);	
 			}	
 				
 		}catch(NullPointerException e) {
@@ -76,7 +76,7 @@ public class AnalyticsCounter {
 			System.err.println("an error occurred when sorting the mapSymptomsOccurences and adding in the table mapSymptomsOccurencesSorted :" +e);
 			e.printStackTrace();
 		}
-        return mapSymptomsOccurencesSorted;    
+       return mapSymptomsOccurencesSorted;     
 	}
 
     public void writeSymptoms(Map<String,Integer> symptoms) { 
