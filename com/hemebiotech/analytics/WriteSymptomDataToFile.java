@@ -1,3 +1,9 @@
+package com.hemebiotech.analytics;
+
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +54,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 e.printStackTrace();
             }
           
-		}else {
-    
-			System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences");
-		
+		} else {
+            System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences");
         }		
 	}							
 }
