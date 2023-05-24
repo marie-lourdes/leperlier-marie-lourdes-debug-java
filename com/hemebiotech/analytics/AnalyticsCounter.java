@@ -52,11 +52,11 @@ public class AnalyticsCounter {
                 System.err.println("an error occurred when calculating the list of symptoms and occurrences in the table mapSymptomsOccurences");
                 e.printStackTrace();    
             }
-            return  mapSymptomsOccurences;
+          
         }else {
             System.err.println("The list of symptoms is empty");
         }
-	    
+	    return  mapSymptomsOccurences;
 	}
 
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
@@ -69,10 +69,11 @@ public class AnalyticsCounter {
                 System.err.println("an error occurred when sorting the mapSymptomsOccurences and adding in the table mapSymptomsOccurencesSorted");
 				e.printStackTrace();	
 			}
-            return mapSymptomsOccurencesSorted;
+           
 		} else {
             System.err.println("The mapSymptomsOccurences is empty");
-        }     
+        } 
+        return mapSymptomsOccurencesSorted;    
 	}
 
     public void writeSymptoms(Map<String,Integer> symptoms) { 

@@ -36,10 +36,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 				reader.close();
+                System.out.println("successfully read, get all list of symtoms from symptoms.txt and adding in the readListSymptoms");		        	     
 			} catch (IOException e) {
+                 System.err.println("reading symptoms to file symptoms.txt failed and adding a list of symptoms failed");
 				e.printStackTrace();
 			}
-		}
+		}else{
+            System.err.println("an error has occurred with the path of the file symptoms.txt");
+        }
 		
 		return result;
 	}

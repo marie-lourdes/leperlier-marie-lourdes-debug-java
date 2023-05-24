@@ -21,7 +21,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	public void writeSymptoms(Map<String, Integer> symptoms) {
         // Check if file exist and if there are content on the map symptoms 
 		//and possible error in instruction try and intercept error in a instruction catch and print explanation of error
-        if (filePath != null && symptoms != null) {
+        if (filePath != null && symptoms.isEmpty()) {
             try {
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
@@ -43,13 +43,14 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + " : " + entrySymptomAndNumberOfOccurrences.getValue()));
 								writer.newLine();
 							} catch (IOException e) {
+                                System.err.println(" writing symptoms to file result.out failed");
 								e.printStackTrace();
 							}	        			
 		        		}
 		        	);	
 				writer.close();
                 System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
-            } catch (IOException e) {
+            } catch (IOException e) {      
                 e.printStackTrace();
             }
           
