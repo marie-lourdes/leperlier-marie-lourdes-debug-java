@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
@@ -43,19 +44,23 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 								writer.write( (String) (entrySymptomAndNumberOfOccurrences.getKey() + " : " + entrySymptomAndNumberOfOccurrences.getValue()));
 								writer.newLine();
 							} catch (IOException e) {
-                                System.err.println(" writing symptoms to file result.out failed");
+                                System.err.println(" writing symptoms to file result.out failed : "+e);
 								e.printStackTrace();
 							}	        			
 		        		}
 		        	);	
 				writer.close();
                 System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
-            } catch (IOException e) {      
+            } catch(FileNotFoundException e){
+                 System.err.println("a possible error of path of the file result.out : " + e); 
+
+            }catch (IOException e) {
+                System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences : " + e);              
                 e.printStackTrace();
             }
           
-		} else {
-            System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences");
-        }		
+		} /*else {
+           
+        }	*/	
 	}							
 }
