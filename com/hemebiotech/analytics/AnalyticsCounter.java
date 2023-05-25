@@ -9,26 +9,42 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
 
+/**
+ * the AnalyticsCounter class regroups all the methods required to get a list
+ * of all symptoms duplicated, to count the number of occurrence of its
+ * symptoms, to save all symptoms and number of occurrences in file result.out
+ * in alphabetical order"
+ *
+ * @param reader        the type ISymtomReader reader parameter is required to use the
+ *                      method of the interface implemented by ReadSymptomDataFromFile
+ *                      class in an instance of AnalyticsCounter class
+ * 
+ * @param writer        the type ISymtomReader reader parameter is required to use the
+ *                      method of the interface implemented by WriteSymptomDataToFile
+ *                      class in an instance of AnalyticsCounter class
+ * <p>
+ * the parameters reader and writer will be used to
+ * <b>
+ * <li>instantiate ReadSymptomDataFromFile with the "reader" reference</li>
+ * <li>instantiate WriteSymptomDataToFile with the "writer" reference</li>
+ *
+ */
 public class AnalyticsCounter { 
 /**	private static ISymptomReader readerSymptomsData;
 	private static List<String> readListSymptoms;
 	public   Map<String, Integer> mapSymptomsOccurences; 
     private static Map<String,Integer> mapSymptomsOccurencesSorted; */
 
-	//instantiation of the WriteSymptomDataToFile class with the mapSymptomsData reference 
-	//to use the ISymptomWriter interface method implemented by the class	
-	//public  ISymptomWriter writerSymptomsData;
-
-    public  ISymptomReader reader;
-	public  ISymptomWriter writer;
+    private  ISymptomReader reader;
+	private  ISymptomWriter writer;
 	
-	//constructor with attributs class reader and writer - type interface implemented by classes ReadSymptomDataFromFile and class WriterSymptomDataToFile
-    //these attributs will refernece and instance of the classes correspondant to use its interfaces
+	//constructor with attributes class reader and writer - type interface implemented by  ReadSymptomDataFromFile class and  WriterSymptomDataToFile class
 	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader= reader;
 		this.writer= writer;	
 	} 
-			
+
+  		
     public List<String> getSymptoms() {
 		  return this.reader.getSymptoms();    
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
-* The class Main execute a program that get list of symptoms from a file symptoms.txt , count the number of occurence; finnally write and save in other file result.out
+* The class Main execute a program that get list of symptoms from a file symptoms.txt , count the number of occurence; finally write and save in other file result.out in alphabetical order
 *calling the class AnalyticsCounter's methods
 *
 */
