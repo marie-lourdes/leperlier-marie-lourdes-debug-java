@@ -53,15 +53,16 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 );	
                 writer.close();
                 System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
-            }      
+            }
         }catch(FileNotFoundException e){
-            System.err.println("a possible error of path of the file result.out : " + e); 
+            System.err.println("a possible error of path of the file result.out : " + e.getMessage()); 
+            e.printStackTrace();
 
         }catch(NullPointerException e) {
-    		System.err.println("mapSymptomsOccurencesSorted is empty: " + e);
+    		System.err.println("mapSymptomsOccurencesSorted is empty: " + e.getMessage());
     		e.printStackTrace();
         }catch (IOException e) {
-            System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences : " + e);              
+            System.err.println("No symptoms listed! maybe: \n - a possible error of path of the file result.out \n -or the symptoms.txt file is empty  \n - or there're problems in reading the file symptoms.txt or in displaying symptoms in the mapSymptomOccurrences : " + e.getMessage());              
             e.printStackTrace();
         }       
 	}									
