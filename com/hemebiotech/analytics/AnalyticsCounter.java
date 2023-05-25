@@ -52,7 +52,7 @@ public class AnalyticsCounter {
  *
  * @throws IOException         thrown if there's a problem in reading the file symptoms.txt  
  *     
- * @return                     a List of all String Symptoms obtained from a data source symptom.txt with unic and duplicated symptoms
+ 
  *
  * @see                          the ISymptomReader Interface and its implementation in ReadSymptomDataFromFile
 */		
@@ -142,12 +142,7 @@ public class AnalyticsCounter {
  *<li>iterating on the TreeMap mapSymptomsOccurencesSorted with Iterator Interface</li>
  *<li> writing saving the list of symptoms and its number of occurrences in the file result.out  
  * 
- *
- * @throws IOException         thrown if there's a problem in reading the file symptoms.txt  
- *     
- * @return                     a List of all String Symptoms obtained from a data source symptom.txt with unic and duplicated symptoms
- *
- * @see                          the ISymptomReader Interface and its implementation in WriteSymptomDataToFile
+ * @see           the ISymptomReader Interface and its implementation in WriteSymptomDataToFile
 */
     public void writeSymptoms(Map<String,Integer> symptoms) { 
        this.writer.writeSymptoms(symptoms);

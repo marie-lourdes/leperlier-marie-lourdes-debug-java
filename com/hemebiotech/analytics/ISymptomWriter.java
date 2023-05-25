@@ -10,7 +10,7 @@ public interface ISymptomWriter {
     /**
 	 * used to create file result.out and write and save all symptoms and number of occurrences from a TreeMap
 	 * 
-	 * @see the implemention of the methode in WriteSymptomDataTofile
+	 * @see          the implemention of the methode in WriteSymptomDataTofile for more explanation
 	 */
     public void writeSymptoms(Map<String, Integer> symptoms);
 }

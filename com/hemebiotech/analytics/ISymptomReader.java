@@ -14,9 +14,7 @@ public interface ISymptomReader {
 	/**
 	 * If no data is available, return an empty List
 	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
-     *
-     * @see the implemention of the methode in ReadSymptomDataFromfile
+     * @see           the implemention of the methode in ReadSymptomDataFromfile for more explanation
 	 */
 	List<String>getSymptoms();
 }

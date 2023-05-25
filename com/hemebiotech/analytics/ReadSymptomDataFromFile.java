@@ -7,23 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ *implementation of the method of the interface ISymptomReader with annotation @Override 
  *
- */
+*/
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
 	
-	/**
-	 * 
-	 * @param filepath              a full or partial path to file with symptom strings in it, one per line
-     *
-     * @throws IOException         thrown if there's a problem in reading the file symptoms.txt
-	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
 	
+/**
+	 * 
+	 * @param filepath              a full or partial path to file with symptom strings in it, one per line
+     *
+     * @throws IOException         thrown if there's a problem in reading the file symptoms.txt
+     *
+     * @return                     a List of all String Symptoms obtained from a data source symptom.txt with unic and duplicated symptoms
+	 */
 	@Override
 	public List<String> getSymptoms() {
 		List<String> result = new ArrayList<String>();
