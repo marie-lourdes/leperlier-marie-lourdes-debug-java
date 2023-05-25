@@ -61,18 +61,19 @@ public class AnalyticsCounter {
 	}
 
 /**
- * used to iterate on the List String Symptoms.
- * add in each iteration  each symptom in a Map, incrementing each new symptoms with value 1 and increments in each iteration the existants symptoms in the HashMap.
- * this type Map avoid to keep symptom duplicated ,but keep the total of the integer value of String key symptom added if the loop for each find existant symptom
+ * used to iterate on the List String Symptoms to generate a Map using a HashMap mapSymptomsOccurences
+ * <li>adding in each iteration  each symptom in a Map</li> 
+ *<li>incrementing each new symptoms with value 1 and increments in each iteration the existing symptoms in the HashMap<li>
+ * this type Map avoid to keep symptom duplicated ,but keep the total of the integer value of String key symptom added if the loop for each find existing symptom
  * 
  * @param symptoms                  a List of String Symptoms that will be converted in a HashMap 
  *                                  with name of symptoms and the number of occurrences 
  *  
- * @throws NullPointerException     thrown if List String Symptoms parameter returns a boolean false with the method isEmpty() 
+ * @throws NullPointerException     thrown if List String symptoms parameter returns a boolean false with the method isEmpty() 
  * 
  * @throws Exception                thrown if other errors occur when iterating on the List of symptoms, adding symptoms and its value 1 or value incremented of the number of occurrence in the HasMap
  *     
- * @return                          a HashMap Symptoms with the name of symptom as String key and Integer value 1 or an Integer value that represents the total of number of occurrences of the symptom
+ * @return                          a HashMap mapSymptomsOccurences with the name of symptom as String key and Integer value 1 or an Integer value that represents the total of number of occurrences of the symptom
  * 
 */
     public Map<String,Integer> countSymptoms(List<String> symptoms) {
@@ -101,7 +102,22 @@ public class AnalyticsCounter {
         
 	    return  mapSymptomsOccurences;
 	}
-
+    
+/**
+ * used to iterate on the precedent HashMap symptoms Symptoms and generate Map of symptoms arranged in alphabetical order using a TreeMap 
+ * 
+ * 
+ * @param symptoms                  the HasMap Symptoms that will be converted in a TreeMap 
+ *                                  with name of symptoms and the number of occurrences 
+ *  
+ * @throws NullPointerException     thrown if the HashMap symptoms parameter returns a boolean false with the method isEmpty() 
+ * 
+ * @throws Exception                thrown if other errors occur when putting the content of the HashMap symptoms in the TreeMap mapSymptomsOccurencesSorted 
+ *     
+ * @return                          a TreeMap mapSymptomsOccurencesSorted with the name of symptom as String key arranged in alphabetical order
+ * 
+ *
+*/
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
        // creation of the TreeMap to arrange  the content of mapSymptomsOccurences in alphabetical order
         Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
