@@ -50,10 +50,10 @@ public class AnalyticsCounter {
                     }
                 }
             }catch(NullPointerException e) {
-                System.err.println("the readListSymptoms is empty: "+ e);
+                System.err.println("the readListSymptoms is empty: " + e.getMessage());
                 e.printStackTrace();
             }catch(Exception e){
-                System.err.println("an error occurred when calculating the list of symptoms and occurrences in the table mapSymptomsOccurences");
+                System.err.println("an error occurred when calculating the list of symptoms and occurrences in the table mapSymptomsOccurences" + e.getMessage());
                 e.printStackTrace();    
             }    
         
@@ -61,19 +61,20 @@ public class AnalyticsCounter {
 	}
 
     public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
+       // creation of the TreeMap to arrange  the content of mapSymptomsOccurences in alphabetical order
         Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
-       try {    
+        try {    
 			if (!symptoms.isEmpty()){
 				//used to to put all content of "mapSymptomsOccurences" in TreeMap "mapSymptomsOccurencesSorted" in alphabetical order	
-					//mapSymptomsOccurencesSorted.putAll(symptoms);	
+					mapSymptomsOccurencesSorted.putAll(symptoms);	
 			}	
 				
 		}catch(NullPointerException e) {
-			System.err.println(" mapSymptomsOccurences is empty: "+ e);
+			System.err.println(" mapSymptomsOccurences is empty: " + e.getMessage());
 			e.printStackTrace();
 				
 		}catch(Exception e) {
-			System.err.println("an error occurred when sorting the mapSymptomsOccurences and adding in the table mapSymptomsOccurencesSorted :" +e);
+			System.err.println("an error occurred when sorting the mapSymptomsOccurences and adding in the table mapSymptomsOccurencesSorted :" + e.getMessage());
 			e.printStackTrace();
 		}
        return mapSymptomsOccurencesSorted;     
