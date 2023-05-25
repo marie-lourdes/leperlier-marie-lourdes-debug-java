@@ -48,14 +48,31 @@ public class AnalyticsCounter {
  * used to read the symptom.txt and stock all of symptoms in a List no ordered with duplicated symptom
  * calling the method getSymptoms of the interface ISymptomReader from an instance of ReadSymptomDataFromFile class called reader
  *
- * @throws IOException         thrown if there's a problem in reading the file symptoms.txt       
+ * @throws IOException         thrown if there's a problem in reading the file symptoms.txt  
+ *     
  * @return                     a List of all String Symptoms obtained from a data source symptom.txt with unic and duplicated symptoms
  *
+ * @see                          the ISymptomReader Interface 
 */		
     public List<String> getSymptoms() {
 		  return this.reader.getSymptoms();    
 	}
 
+/**
+ * used to iterate on the List String Symptoms.
+ * add in each iteration  each symptom in a Map, incrementing each new symptoms with value 1 and increments in each iteration the existants symptoms in the HashMap.
+ * this type Map avoid to keep symptom duplicated ,but keep the total of the integer value of String key symptom additonned if find existant symptom
+ * 
+ * @param symptoms                  a List of String Symptoms that will be converted in a HashMap 
+ *                                  with name of symptoms and the number of occurrences 
+ *  
+ * @throws NullPointerException     thrown if List String Symptoms parameter returns a boolean false with the method isEmpty() 
+ * 
+ * @throws Exception                thrown if other errors occur when iterating on the List of symptoms, adding symptoms and its value 1 or value incremented of the number of occurrence in the HasMap
+ *     
+ * @return                          a HashMap Symptoms with the name of symptom as String key and Integer value 1 or an Integer value that represents the total of number of occurrences of the symptom
+ * 
+*/
     public Map<String,Integer> countSymptoms(List<String> symptoms) {
         Map<String,Integer> mapSymptomsOccurences= new HashMap<String,Integer>();
         
