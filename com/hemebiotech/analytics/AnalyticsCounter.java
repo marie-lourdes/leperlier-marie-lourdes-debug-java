@@ -28,6 +28,8 @@ import java.util.TreeMap;
  * <li>instantiate ReadSymptomDataFromFile with the "reader" reference</li>
  * <li>instantiate WriteSymptomDataToFile with the "writer" reference</li>
  *
+ * @see                  the implementation of the method getSymptoms of the Interface ISymtomReader in ReadSymptomDataFromFile
+ * @see                  the implementation of the method writeSymptoms of the Interface ISymtomWriter in WriteSymptomDataToFile
  */
 public class AnalyticsCounter { 
 /**	private static ISymptomReader readerSymptomsData;
@@ -61,7 +63,7 @@ public class AnalyticsCounter {
 /**
  * used to iterate on the List String Symptoms.
  * add in each iteration  each symptom in a Map, incrementing each new symptoms with value 1 and increments in each iteration the existants symptoms in the HashMap.
- * this type Map avoid to keep symptom duplicated ,but keep the total of the integer value of String key symptom additonned if find existant symptom
+ * this type Map avoid to keep symptom duplicated ,but keep the total of the integer value of String key symptom added if the loop for each find existant symptom
  * 
  * @param symptoms                  a List of String Symptoms that will be converted in a HashMap 
  *                                  with name of symptoms and the number of occurrences 
