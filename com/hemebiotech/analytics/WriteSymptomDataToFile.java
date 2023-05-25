@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
@@ -11,19 +12,19 @@ import java.util.List;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
     String filePath;
-	
 	// Constructor
 	public WriteSymptomDataToFile() {
-		this.filePath= "";	
+		this.filePath= "result.out";	
 	}
     
     // Override the  method writeSymptoms of ISymptomWriter interface with Iterator to iterate and  display key -symptom and value - number of occurrences of each symptom
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
+       
         // Check if file exist and if there are content on the map symptoms 
 		//and possible error in instruction try and intercept error in a instruction catch and print explanation of error
-       
-        try {
+    
+        try {     
             if (filePath != null && !symptoms.isEmpty()) {
                 // Create object writer with path of file and second argument to write without remove all previous content 
                 // the object writer is used by bufferedReader which write line by line on file indicated in the filePath           
@@ -52,11 +53,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 );	
                 writer.close();
                 System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
-            } else if(filePath == null){
-                throw new FileNotFoundException();
-            } else if(symptoms.isEmpty()){
-                throw new  NullPointerException();
-            }  
+            }      
         }catch(FileNotFoundException e){
             System.err.println("a possible error of path of the file result.out : " + e); 
 

@@ -67,8 +67,7 @@ public class AnalyticsCounter {
 			if (!symptoms.isEmpty()){
 				//used to to put all content of "mapSymptomsOccurences" in TreeMap "mapSymptomsOccurencesSorted" in alphabetical order	
 					mapSymptomsOccurencesSorted.putAll(symptoms);	
-			}	
-				
+			}			
 		}catch(NullPointerException e) {
 			System.err.println(" mapSymptomsOccurences is empty: " + e.getMessage());
 			e.printStackTrace();
