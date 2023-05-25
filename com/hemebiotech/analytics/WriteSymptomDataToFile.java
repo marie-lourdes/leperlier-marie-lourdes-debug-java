@@ -14,7 +14,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	// Constructor
 	public WriteSymptomDataToFile() {
-		this.filePath= "result.out";	
+		this.filePath= "";	
 	}
     
     // Override the  method writeSymptoms of ISymptomWriter interface with Iterator to iterate and  display key -symptom and value - number of occurrences of each symptom
@@ -52,6 +52,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
                 );	
                 writer.close();
                 System.out.println("The file result.out get all list of symtoms and their number of occurrences after writing in it");		        	     
+            } else if(filePath == null){
+                throw new FileNotFoundException();
+            } else if(symptoms.isEmpty()){
+                throw new  NullPointerException();
             }  
         }catch(FileNotFoundException e){
             System.err.println("a possible error of path of the file result.out : " + e); 
