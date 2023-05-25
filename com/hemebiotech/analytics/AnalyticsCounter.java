@@ -44,7 +44,14 @@ public class AnalyticsCounter {
 		this.writer= writer;	
 	} 
 
-  		
+/**
+ * used to read the symptom.txt and stock all of symptoms in a List no ordered with duplicated symptom
+ * calling the method getSymptoms of the interface ISymptomReader from an instance of ReadSymptomDataFromFile class called reader
+ *
+ * @throws IOException         thrown if there's a problem in reading the file symptoms.txt       
+ * @return                     a List of all String Symptoms obtained from a data source symptom.txt with unic and duplicated symptoms
+ *
+*/		
     public List<String> getSymptoms() {
 		  return this.reader.getSymptoms();    
 	}
