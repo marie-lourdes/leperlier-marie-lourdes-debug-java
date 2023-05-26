@@ -1,8 +1,8 @@
 package com.hemebiotech.analytics;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 /**
@@ -10,11 +10,16 @@ import java.util.TreeMap;
  * of all symptoms duplicated, to count the number of occurrence of its
  * symptoms, to save all symptoms and number of occurrences in file result.out
  * in alphabetical order
- *<p>
- * the AnalyticsCounter is composed of a reader Interface and a writer Interface implemented by ReadSymptomDataFromFile and WriteSymptomDataToFile 
- * with the methods of interfaces  and his own methods, to analyze and to count
+ *<p>the AnalyticsCounter is composed of a reader Interface and a writer Interface 
+ * implemented by ReadSymptomDataFromFile and WriteSymptomDataToFile 
+ * to analyze and to count all symptoms and its occurrences,
+ * the methods of interfaces  and his own methods perform these tasks
  *<br> 
- * first to read, to extract the contents of the file in a List, then to reorganize and process the information extracted from the file, read and written in a file to save processing this symptom information and calculating symptom occurrences
+ *<li>first to read</li>
+ *<li>then to extract the contents of the file in a List</li>
+ *<li>then to reorganize and process the information extracted from the file</li>
+ *<li>read and written in a file to save processing this symptom information 
+ * and number of occurrences</li></p>
  *
  * @param reader        the type ISymtomReader reader parameter is required to use the
  *                      method of the interface implemented by ReadSymptomDataFromFile
@@ -23,22 +28,26 @@ import java.util.TreeMap;
  * @param writer        the type ISymtomReader reader parameter is required to use the
  *                      method of the interface implemented by WriteSymptomDataToFile
  *                      class in an instance of AnalyticsCounter class
- *<p>
+ *
  * the parameters reader and writer will be used to
+ *
  *<b>
  *<li>instantiate ReadSymptomDataFromFile with the "reader" reference</li>
  *<li>instantiate WriteSymptomDataToFile with the "writer" reference</li>
+ *</b>
  *
- * @see                  "the implementation of the method getSymptoms of the Interface ISymtomReader in ReadSymptomDataFromFile"
+ *  @see                "implementation of the method getSymptoms of the Interface ISymtomReader 
+                        in ReadSymptomDataFromFile"
  *
- * @see                  "the implementation of the method writeSymptoms of the Interface ISymtomWriter in WriteSymptomDataToFile"
+ *  @see                "implementation of the method writeSymptoms of the Interface ISymtomWriter 
+                        in WriteSymptomDataToFile"
  */
-public class AnalyticsCounter { 
-    private  ISymptomReader reader;
-	private  ISymptomWriter writer;
-	
-	// constructor with attributes class reader and writer - type interface implemented by  ReadSymptomDataFromFile class and  WriterSymptomDataToFile class
-	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+public class AnalyticsCounter {
+    private ISymptomReader reader;
+    private ISymptomWriter writer; 	
+
+    // constructor with attributes class reader and writer - type interface implemented by ReadSymptomDataFromFile class and WriterSymptomDataToFile class
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;	
 	} 
