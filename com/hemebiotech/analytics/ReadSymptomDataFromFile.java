@@ -11,13 +11,11 @@ import java.util.List;
  *
 */
 public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filepath;
-
-    // constructor assigns to the attribute "filepath" a full or partial path to file with symptom strings in it, one per line
-	public ReadSymptomDataFromFile(String filepath) {
-		this.filepath = filepath;
-	}
+  private String filepath;
+  // constructor assigns to the attribute "filepath" a full or partial path to file with symptom strings in it, one per line
+  public ReadSymptomDataFromFile(String filepath) {
+	this.filepath = filepath;
+}
 	
 /**
  * @throws IOException         if there's a problem in reading the file symptoms.txt
@@ -26,30 +24,29 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
  *
  * @see                        #getSymptoms()
 */
-	@Override
-	public List<String> getSymptoms() {
-        // creation of List to stock the symptoms from the file symptoms.txt
-		List<String> result = new ArrayList<String>();
+  @Override
+  public List<String> getSymptoms() {
+    // creation of List to stock the symptoms from the file symptoms.txt
+	List<String> result = new ArrayList<String>();
 		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader(new FileReader(filepath));
-				String line = reader.readLine();
+	if (filepath != null) {
+	  try {
+	    BufferedReader reader = new BufferedReader(new FileReader(filepath));
+		String line = reader.readLine();
 				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-
-				reader.close();
-                System.out.println("successfully read, get all list of symtoms from symptoms.txt and adding in the readListSymptoms");		        	     
-			} catch (IOException e) {
-                System.err.println("reading symptoms to file symptoms.txt failed and adding a list of symptoms failed : "+ e.getMessage());
-				e.printStackTrace();
-			}
+		while (line != null) {
+		  result.add(line);
+		  line = reader.readLine();
 		}
-        	
-		return result;
-	}
 
+		reader.close();
+        System.out.println("successfully read, get all list of symtoms from symptoms.txt and adding in the readListSymptoms");		        	     
+	  } catch (IOException e) {
+          System.err.println("reading symptoms to file symptoms.txt failed and adding a list of symptoms failed : "+ e.getMessage());
+		  e.printStackTrace();
+		}
+	}
+        	
+	return result;
+  }
 }
