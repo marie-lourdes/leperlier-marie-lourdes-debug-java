@@ -32,7 +32,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
  *
  * @throws NullPointerException       thrown if the TreeMap symptoms parameter return false with the method isEmpty
  *
- * @Throws IOException                thrown  if the error occurs when writing on the file result.out
+ * @throws IOException                thrown  if the error occurs when writing on the file result.out
  *
  * @throws Exceptions                 thrown if other errors occurs  when iterating on the TreeMap and the creating and writing on the file result.out
 */

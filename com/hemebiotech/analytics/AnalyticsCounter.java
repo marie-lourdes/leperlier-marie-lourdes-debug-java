@@ -10,10 +10,15 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 /**
- * the AnalyticsCounter class regroups all the methods required to get a list
+ * the AnalyticsCounter class gathers all the methods required to get a list
  * of all symptoms duplicated, to count the number of occurrence of its
  * symptoms, to save all symptoms and number of occurrences in file result.out
- * in alphabetical order"
+ * in alphabetical order
+ <p>
+ *the AnalyticsCounter is composed of a reader Interface and a writer Interface implemented by ReadSymptomDataFromFile and WriteSymptomDataToFile 
+ * with the methods of interfaces  and his own methods, to analyze and to count
+ *<br> 
+ *first to read, to extract the contents of the file in a List, then to reorganize and process the information extracted from the file, read and written in a file to save processing this symptom information and calculating symptom occurrences
  *
  * @param reader        the type ISymtomReader reader parameter is required to use the
  *                      method of the interface implemented by ReadSymptomDataFromFile
@@ -29,6 +34,7 @@ import java.util.TreeMap;
  * <li>instantiate WriteSymptomDataToFile with the "writer" reference</li>
  *
  * @see                  the implementation of the method getSymptoms of the Interface ISymtomReader in ReadSymptomDataFromFile
+ *
  * @see                  the implementation of the method writeSymptoms of the Interface ISymtomWriter in WriteSymptomDataToFile
  */
 public class AnalyticsCounter { 
@@ -42,8 +48,8 @@ public class AnalyticsCounter {
 	
 	//constructor with attributes class reader and writer - type interface implemented by  ReadSymptomDataFromFile class and  WriterSymptomDataToFile class
 	public  AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
-		this.reader= reader;
-		this.writer= writer;	
+		this.reader = reader;
+		this.writer = writer;	
 	} 
 
 /**
@@ -52,12 +58,10 @@ public class AnalyticsCounter {
  *
  * @throws IOException         thrown if there's a problem in reading the file symptoms.txt  
  *     
- 
- *
  * @see                          the ISymptomReader Interface and its implementation in ReadSymptomDataFromFile
 */		
     public List<String> getSymptoms() {
-		  return this.reader.getSymptoms();    
+		return this.reader.getSymptoms();    
 	}
 
 /**
@@ -118,9 +122,9 @@ public class AnalyticsCounter {
  * 
  *
 */
-    public Map<String,Integer> sortSymptoms(Map<String,Integer> symptoms) {
+    public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
        // creation of the TreeMap to arrange  the content of mapSymptomsOccurences in alphabetical order
-        Map<String,Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
+        Map<String, Integer> mapSymptomsOccurencesSorted = new TreeMap<String,Integer>();
         try {    
 			if (!symptoms.isEmpty()){
 				//used to to put all content of "mapSymptomsOccurences" in TreeMap "mapSymptomsOccurencesSorted" in alphabetical order	
