@@ -8,11 +8,15 @@ import java.util.Map;
 *<li>get list of symptoms from a file symptoms.txt</li>
 *<li>count the number of occurrences
 *<li>finally write and save in other file result.out in alphabetical order</li>
-* calling the class AnalyticsCounter's methods from an instance of this class
+* calling the class AnalyticsCounter's methods from an instance of this class.
 *
 */
 
 public class Main {
+  /**
+   * the method main call the methods needed for execute the programm that 
+   * count the number of occurrences and save it in a file result.out.
+   */
   public static void main(String[] args) throws Exception {
     /* instantiation of the class ReadSymptomDataFromFile class with the "reader" reference 
     to use the ISymptomReader interface method implemented by the class */

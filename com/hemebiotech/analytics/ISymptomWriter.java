@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 
 /**
- * anything the will write symptom data on a valid data output format
+ * anything the will write symptom data on a valid data output format.
  *
  */
 public interface ISymptomWriter {

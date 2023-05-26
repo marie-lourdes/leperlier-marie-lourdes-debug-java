@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * implementation of the method of the interface ISymptomReader with annotation @Override 
+ * implementation of the method of the interface ISymptomReader with annotation @Override. 
  *
 */
 public class ReadSymptomDataFromFile implements ISymptomReader {
@@ -20,6 +20,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
   }
 
   /**
+   * used to read the file symptoms.txt and add all content in List String
    * @throws IOException    if there's a problem in reading the file symptoms.txt
    *
    * @return    a List of all String Symptoms obtained from a data source symptom.txt 

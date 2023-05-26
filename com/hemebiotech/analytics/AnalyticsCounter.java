@@ -76,7 +76,7 @@ public class AnalyticsCounter {
    * and increments in each iteration the existing symptoms in the HashMap<li>
    * this type Map avoid to keep symptom duplicated
    * but keep the total of the integer value of String key symptom added 
-   * if the loop for each find existing symptom
+   * if the loop for each find existing symptom.
    * 
    * @param symptoms    a List of String Symptoms that will be converted in a HashMap 
    *     with name of symptoms and the number of occurrences
@@ -126,7 +126,7 @@ public class AnalyticsCounter {
 
   /**
   * used to iterate on the precedent HashMap symptoms Symptoms and generate Map of symptoms arranged
-  *     in alphabetical order using a TreeMap 
+  *     in alphabetical order using a TreeMap. 
   * 
   * @param symptoms    the HasMap Symptoms that will be converted in a TreeMap 
   *     with name of symptoms and the number of occurrences 
@@ -162,7 +162,7 @@ public class AnalyticsCounter {
   *
   *<li>iterating on the TreeMap "mapSymptomsOccurencesSorted" with Iterator Interface</li>
   *<li>writing saving the list of symptoms and its number of occurrences in the file result.out 
-  * with a BufferedWriter object and FileWriter Object</li>
+  * with a BufferedWriter object and FileWriter Object</li>.
   * 
   * @see    "the ISymptomReader Interface and its implementation in WriteSymptomDataToFile"
   *
