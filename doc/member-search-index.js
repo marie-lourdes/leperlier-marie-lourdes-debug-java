@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.hemebiotech.analytics","c":"ReadSymptomDataFromFile","l":"getSymptoms()"},{"p":"com.hemebiotech.analytics","c":"ReadSymptomDataFromFile","l":"ReadSymptomDataFromFile(String)","u":"%3Cinit%3E(java.lang.String)"}];updateSearchResults();
