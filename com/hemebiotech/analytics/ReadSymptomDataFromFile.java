@@ -24,7 +24,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
    * @throws IOException    if there's a problem in reading the file symptoms.txt
    *
    * @return    a List of all String Symptoms obtained from a data source symptom.txt 
-   *     with unic and duplicated symptoms
+   *     with unique and duplicated symptoms
    *
    * @see    #getSymptoms()
    */

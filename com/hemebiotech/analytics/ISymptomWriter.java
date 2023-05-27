@@ -11,7 +11,7 @@ public interface ISymptomWriter {
    * used to create file result.out 
    * and write and save all symptoms and number of occurrences from a Map
    * 
-   * @see    "the implemention of the method in WriteSymptomDataTofile for more explanation"
+   * @see    "implemention of the method in WriteSymptomDataTofile for more explanation"
    *
    */
   public void writeSymptoms(Map<String, Integer> symptoms);
