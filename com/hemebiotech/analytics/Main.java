@@ -14,16 +14,12 @@ import java.util.Map;
 
 public class Main {
   /**
-   * the method main call the methods needed for execute the programm that 
+   * the method main call the methods needed for execute the program that 
    * count the number of occurrences and save it in a file result.out.
    */
   public static void main(String[] args) throws Exception {
-    /* instantiation of the class ReadSymptomDataFromFile class with the "reader" reference 
-    to use the ISymptomReader interface method implemented by the class */
+   
     ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-
-    /* instantiation of the class WriteSymptomDataToFile class with the "writer" reference 
-    to use the ISymptomWriter interface method implemented by the class */
     ISymptomWriter writer = new WriteSymptomDataToFile();
 
     /* add instance reader and writer as arguments 
@@ -31,27 +27,22 @@ public class Main {
     and create instance of the class with reference "counter" */
     AnalyticsCounter counter = new AnalyticsCounter(reader, writer); 
 
-    /*then call the method getSymptoms of interface 
+    /* then call the method getSymptoms of interface 
     implemented by the class ReadSymptomDataFromFile 
-    and used by the class AnalyticsCounter instancied in "counter" 
-    to create List of symptoms readed from symptoms.txt stocked in "readListSymptoms" */
+    to create List of symptoms read from symptoms.txt */
     List<String> readListSymptoms = counter.getSymptoms(); 
 
-    /* then call the method countSymptoms of the class AnalyticsCounter instancied in "counter" 
-    to iterate on the ArrayList "readListSymptoms", 
-    the method create a HashMap and add the symptoms and number of occurrences added in the HashMap 
-    stocked in "mapSymptomsOccurences" during the iteration of the ArrayList "readListSymptoms" */
+    /* then call the method countSymptoms 
+    the method create a HashMap and add the symptoms and number of occurrences added */
     Map<String, Integer> mapSymptomsOccurences = counter.countSymptoms(readListSymptoms);
 
-    /* then the the method countSymptoms of the class AnalyticsCounter instancied in "counter" 
+    /* then the the method countSymptoms of the class AnalyticsCounter
     to generate a TreeMap from the previous HashMap "mapSymptomsOccurences"
-    and get the list of symptoms, the number of occurrences of each symtoms in alphabetical order 
-    in a TreeMap stocked in  "mapSymptomsOccurencesSorted" */ 
+    and get the list of symptoms, the number of occurrences of each symptoms in alphabetical order  */ 
     Map<String, Integer> mapSymptomsOccurencesSorted = counter.sortSymptoms(mapSymptomsOccurences);
 
     /* after all that process : 
     call the method writeSymptoms of interface implemented by WriteSymptomDataFromFile 
-    and used by the class AnalyticsCounter instancied in "counter" 
     to iterate the TreeMap mapSymptomsOccurencesSorted  
     and in each iteration the method write each entry of the TreeMap mapSymptomsOccurencesSorted 
     on the file "result.out" */ 
