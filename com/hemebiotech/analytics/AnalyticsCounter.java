@@ -113,11 +113,11 @@ public class AnalyticsCounter {
       }
     } catch (NullPointerException e) {
       System.err.println(
-          "the readListSymptoms is empty: " + e.getMessage());
+          "the readListSymptoms is empty : " + e.getMessage());
       e.printStackTrace();
     } catch (Exception e) {
       System.err.println(
-          "an error has occurred" + e.getMessage());
+          "an error has occurred : " + e.getMessage());
       e.printStackTrace();    
     }    
     return mapSymptomsOccurences;
@@ -147,7 +147,7 @@ public class AnalyticsCounter {
         mapSymptomsOccurencesSorted.putAll(symptoms);
       }
     } catch (NullPointerException e) {
-      System.err.println("mapSymptomsOccurences is empty: " + e.getMessage());
+      System.err.println("mapSymptomsOccurences is empty : " + e.getMessage());
       e.printStackTrace();
     } catch (Exception e) {
       System.err.println("an error has occurred : " + e.getMessage());

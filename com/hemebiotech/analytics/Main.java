@@ -37,7 +37,7 @@ public class Main {
 
     /* then the the method countSymptoms of the class AnalyticsCounter
     to generate a TreeMap from the previous HashMap "mapSymptomsOccurences"
-    and get the list of symptoms, the number of occurrences of each symptoms in alphabetical order  */ 
+    and get the list of symptoms, the number of occurrences of each symptoms in alphabetical order */ 
     Map<String, Integer> mapSymptomsOccurencesSorted = counter.sortSymptoms(mapSymptomsOccurences);
 
     /* after all that process : 
