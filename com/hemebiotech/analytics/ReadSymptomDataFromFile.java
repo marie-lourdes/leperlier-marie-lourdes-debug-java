@@ -23,6 +23,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
    * used to read the file symptoms.txt and add all content in List String.
    *
    * @exception IOException    if there's a problem in reading the file symptoms.txt
+   * @throws Exception          if the file symptoms.txt is empty 
    *
    * @return    a List of all String Symptoms obtained from a data source symptom.txt 
    *     with unique and duplicated symptoms
@@ -45,10 +46,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
         reader.close();
         System.out.println("successfully read");
+
+        if (line == null) {
+          throw new Exception("no symptoms listed");
+        } 
+         
       } catch (IOException e) {
         System.err.println("reading symptoms to file symptoms.txt failed" 
             + "and adding a list of symptoms failed : " + e.getMessage());
         e.printStackTrace();
+      } catch (Exception e) {
+        System.err.println("symptoms.txt is empty, no symptoms listed");         
       }
     }   
     return result;  
