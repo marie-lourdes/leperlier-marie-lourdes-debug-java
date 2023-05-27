@@ -11,7 +11,10 @@ import java.util.List;
  */
 public interface ISymptomReader {
   /**
-   * if no data is available, return an empty List.
+   * used to generate a List of all symptoms from a file.
+   *
+   * @return    a List unordered of String symptoms,
+   *     if no data is available, return an empty List.
    * 
    * @see           "implemention of the method in ReadSymptomDataFromfile"
    */

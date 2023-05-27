@@ -32,7 +32,7 @@ import java.util.TreeMap;
  *     method of the interface implemented by ReadSymptomDataFromFile
  *     class in an instance of AnalyticsCounter class
  * 
- * @param writer    the type ISymtomReader reader parameter is required to use the
+ * @param writer    the type ISymtomWriter writer parameter is required to use the
  *     method of the interface implemented by WriteSymptomDataToFile
  *     class in an instance of AnalyticsCounter class
  *
@@ -73,7 +73,7 @@ public class AnalyticsCounter {
    * to generate a Map using a HashMap mapSymptomsOccurences
    *<li>adding in each iteration  each symptom in a Map</li> 
    *<li>incrementing each new symptoms with value 1
-   * and increments in each iteration the existing symptoms in the HashMap<li>
+   * and increments in each iteration the existing symptoms in the HashMap</li>
    * this type Map avoid to keep symptom duplicated
    * but keep the total of the integer value of String key symptom added 
    * if the loop for each find existing symptom.

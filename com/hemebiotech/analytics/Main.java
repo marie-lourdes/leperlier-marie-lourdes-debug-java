@@ -35,9 +35,10 @@ public class Main {
     the method create a HashMap and add the symptoms and number of occurrences added */
     Map<String, Integer> mapSymptomsOccurences = counter.countSymptoms(readListSymptoms);
 
-    /* then the the method countSymptoms of the class AnalyticsCounter
-    to generate a TreeMap from the previous HashMap "mapSymptomsOccurences"
-    and get the list of symptoms, the number of occurrences of each symptoms in alphabetical order */ 
+    /* then the the method countSymptoms
+    to generate a TreeMap from the previous HashMap "mapSymptomsOccurences",
+    and get the list of symptoms,
+    the number of occurrences of each symptoms in alphabetical order */ 
     Map<String, Integer> mapSymptomsOccurencesSorted = counter.sortSymptoms(mapSymptomsOccurences);
 
     /* after all that process : 

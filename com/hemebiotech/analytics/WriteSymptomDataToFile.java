@@ -19,7 +19,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
   }
     
   /**
-   * used to create and to write in file result.out      
+   * used to create and to write in file result.out.
+   *
+   * @param symptoms    a TreeMap to iterate on it and write the content in file 
+   *    
    * @throws IOException    if there's a problem in reading the file symptoms.txt
    *
    * @throws FileNotFoundException    if the path of the file return null
@@ -29,14 +32,14 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
    *
    * @throws IOException    if the error occurs when writing on the file result.out
    *
-   * @throws Exceptions    if other errors occurs when iterating on the TreeMap 
+   * @throws Exception    if other errors occurs when iterating on the TreeMap 
          and  creating and writing on the file result.out
    *
    * @see    #writeSymptoms()
    *
    */
   // override the method writeSymptoms of ISymptomWriter  interface with Iterator 
-  // to iterate and display key - symptom and value - number of occurrences of each symptom */
+  // to iterate and display key - symptom and value - number of occurrences of each symptom 
   @Override
   public void writeSymptoms(Map<String, Integer> symptoms) {
        
