@@ -14,7 +14,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
   private String filepath;
 
   /* constructor assigns to the attribute "filepath" a full or partial path to file 
-  with symptom strings in it, one per line */
+  with String symptom in it, one per line */
   public ReadSymptomDataFromFile(String filepath) {
     this.filepath = filepath;
   }
@@ -30,7 +30,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
    */
   @Override
   public List<String> getSymptoms() {
-    // creation of List to stock the symptoms from the file symptoms.txt
     List<String> result = new ArrayList<String>();
 
     if (filepath != null) {

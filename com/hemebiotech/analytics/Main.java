@@ -18,7 +18,6 @@ public class Main {
    * count the number of occurrences and save it in a file result.out.
    */
   public static void main(String[] args) throws Exception {
-   
     ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
     ISymptomWriter writer = new WriteSymptomDataToFile();
 

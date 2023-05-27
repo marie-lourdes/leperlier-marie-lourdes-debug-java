@@ -13,7 +13,7 @@ public interface ISymptomReader {
   /**
    * if no data is available, return an empty List.
    * 
-   * @see           "implemention of the methode in ReadSymptomDataFromfile"
+   * @see           "implemention of the method in ReadSymptomDataFromfile"
    */
   List<String> getSymptoms();
 }

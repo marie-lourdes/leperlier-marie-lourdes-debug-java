@@ -94,7 +94,6 @@ public class AnalyticsCounter {
    * 
    */
   public Map<String, Integer> countSymptoms(List<String> symptoms) {
-    // create a HasMap object
     Map<String, Integer> mapSymptomsOccurences = new HashMap<String, Integer>();
         
     try {
