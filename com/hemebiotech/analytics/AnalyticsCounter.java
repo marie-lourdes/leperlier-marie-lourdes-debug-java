@@ -1,43 +1,172 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * the AnalyticsCounter class gathers all the methods required to get a list
+ * of all symptoms duplicated, to count the number of occurrence of its
+ * symptoms, to save all symptoms and number of occurrences in file result.out
+ * in alphabetical order
+ *<p>the AnalyticsCounter is composed of a reader Interface and a writer Interface 
+ * implemented by ReadSymptomDataFromFile and WriteSymptomDataToFile 
+ * to analyze and to count all symptoms and its occurrences,
+ * the methods of interfaces  and his own methods perform these tasks
+ *<br> 
+ *<li>first to read</li>
+ *<li>then to extract the contents of the file in a List</li>
+ *<li>then to reorganize and process the information extracted from the file</li>
+ *<li>read and written in a file to save processing this symptom information 
+ * and number of occurrences</li></p>
+ *
+ *<p>the parameters reader and writer will be used to
+ *
+ *<b>
+ *<li>instantiate ReadSymptomDataFromFile with the "reader" reference</li>
+ *<li>instantiate WriteSymptomDataToFile with the "writer" reference</li>
+ *</b></p>
+ *
+ * @param reader    the type ISymtomReader reader parameter is required to use the
+ *     method of the interface implemented by ReadSymptomDataFromFile
+ *     class in an instance of AnalyticsCounter class
+ * 
+ * @param writer    the type ISymtomWriter writer parameter is required to use the
+ *     method of the interface implemented by WriteSymptomDataToFile
+ *     class in an instance of AnalyticsCounter class
+ *
+ * @see    "implementation of the method getSymptoms of the Interface ISymtomReader 
+ *     in ReadSymptomDataFromFile"
+ *
+ * @see    "implementation of the method writeSymptoms of the Interface ISymtomWriter 
+ *     in WriteSymptomDataToFile"
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	
-	private static int rashCount = 0;		
-	private static int pupilCount = 0;		
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+  private ISymptomReader reader;
+  private ISymptomWriter writer; 
 
-		int i = 0;	
-		int headCount = 0;	// headCount int - counts number of headaches added with loop while
-		while (line != null) {
-			i++;	
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+  /* constructor with attributes class reader and writer 
+   type interface implemented by ReadSymptomDataFromFile class and WriterSymptomDataToFile class */
+  public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+    this.reader = reader;
+    this.writer = writer;
+  } 
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+  /**
+   * used to read the symptom.txt and 
+   * stock all of symptoms in a List no ordered with duplicated symptom
+   * calling the method getSymptoms of the interface ISymptomReader 
+   * from an instance of ReadSymptomDataFromFile class called reader
+   *
+   * @throws IOException    if there's a problem in reading the file symptoms.txt  
+   *     
+   * @see    "the ISymptomReader Interface and its implementation in ReadSymptomDataFromFile"
+   *
+   */
+  public List<String> getSymptoms() {
+    return this.reader.getSymptoms();    
+  }
+
+  /**
+   * used to iterate on the List String Symptoms 
+   * to generate a Map using a HashMap mapSymptomsOccurences
+   *<li>adding in each iteration  each symptom in a Map</li> 
+   *<li>incrementing each new symptoms with value 1
+   * and increments in each iteration the existing symptoms in the HashMap</li>
+   * this type Map avoid to keep symptom duplicated
+   * but keep the total of the integer value of String key symptom added 
+   * if the loop for each find existing symptom.
+   * 
+   * @param symptoms    a List of String Symptoms that will be converted in a HashMap 
+   *     with name of symptoms and the number of occurrences
+   *
+   * @return    a HashMap "mapSymptomsOccurences" with the name of symptom as String key 
+   *     and Integer value 1 or an Integer value that represents the total 
+   *     of number of occurrences of the symptom 
+   * 
+   * @throws NullPointerException    if List String symptoms parameter 
+   *     returns a boolean false with the method isEmpty()
+   *  
+   * @throws Exception    if other errors occur when iterating on the List of symptoms,
+   *     adding symptoms and its value 1 or value incremented 
+   *     of the number of occurrence in the HashMap 
+   * 
+   */
+  public Map<String, Integer> countSymptoms(List<String> symptoms) {
+    Map<String, Integer> mapSymptomsOccurences = new HashMap<String, Integer>();
+        
+    try {
+      if (!symptoms.isEmpty()) {
+        /* loop For Each adds the listSymptoms key symptom and value number occurrence in a TreeMap
+         the number of occurrences is incremented if the symptoms is already present 
+         in the TreeMap "mapSymptomsOccurences" 
+         otherwise 1 is added if the symptom does not exist in the TreeMap */
+        for (String symptom:symptoms) {
+          if (!mapSymptomsOccurences.containsKey(symptom)) {
+            mapSymptomsOccurences.put(symptom, 1);
+          } else {
+            int numberOfOccurrencesSymptom = mapSymptomsOccurences.get(symptom);
+            mapSymptomsOccurences.put(symptom, numberOfOccurrencesSymptom + 1);
+          }
+        }
+      }
+    } catch (NullPointerException e) {
+      System.err.println(
+          "the readListSymptoms is empty : " + e.getMessage());
+      e.printStackTrace();
+    } catch (Exception e) {
+      System.err.println(
+          "an error has occurred : " + e.getMessage());
+      e.printStackTrace();    
+    }    
+    return mapSymptomsOccurences;
+  }
+
+  /**
+  * used to iterate on the precedent HashMap symptoms Symptoms and generate Map of symptoms arranged
+  *     in alphabetical order using a TreeMap. 
+  * 
+  * @param symptoms    the HasMap Symptoms that will be converted in a TreeMap 
+  *     with name of symptoms and the number of occurrences 
+  *
+  * @return    a TreeMap "mapSymptomsOccurencesSorted" with the name of symptom as String key 
+  *     arranged in alphabetical order
+  *  
+  * @throws NullPointerException    if the HashMap symptoms parameter returns a boolean false 
+  *     with the method isEmpty() 
+  * 
+  * @throws Exception    if other errors occur when putting the content of the HashMap symptoms 
+  *     in the TreeMap mapSymptomsOccurencesSorted 
+  *       
+  */
+  public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+    Map<String, Integer> mapSymptomsOccurencesSorted = new TreeMap<String, Integer>();
+    try {
+      if (!symptoms.isEmpty()) {
+        mapSymptomsOccurencesSorted.putAll(symptoms);
+      }
+    } catch (NullPointerException e) {
+      System.err.println("mapSymptomsOccurences is empty : " + e.getMessage());
+      e.printStackTrace();
+    } catch (Exception e) {
+      System.err.println("an error has occurred : " + e.getMessage());
+      e.printStackTrace();
+    }
+    return mapSymptomsOccurencesSorted;
+  }
+
+  /**
+  * used to get all symptom arranged in alphabetical order 
+  *
+  *<li>iterating on the TreeMap "mapSymptomsOccurencesSorted" with Iterator Interface</li>
+  *<li>writing saving the list of symptoms and its number of occurrences in the file result.out 
+  * with a BufferedWriter object and FileWriter Object</li>.
+  * 
+  * @see    "the ISymptomReader Interface and its implementation in WriteSymptomDataToFile"
+  *
+  */
+  public void writeSymptoms(Map<String, Integer> symptoms) { 
+    this.writer.writeSymptoms(symptoms);
+  }
 }
