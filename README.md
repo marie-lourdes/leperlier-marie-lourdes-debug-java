@@ -2,7 +2,7 @@
 
 ## Overview ##
 
-The company ** Heme Biotech ** is part of the pharmaceutical industry: the development of drugs and primarily treats blood disorders in humans and animals
+The company **Heme Biotech** is part of the pharmaceutical industry: the development of drugs and primarily treats blood disorders in humans and animals
 To ensure the quality of its products, it collects data from their product: dosages, symptoms, treatment...
 
 The company wants to improve the prediction of drug needs with their customers: doctors and veterinarians using the software.The program:
