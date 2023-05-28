@@ -59,7 +59,7 @@ public class AnalyticsCounter {
    * calling the method getSymptoms of the interface ISymptomReader 
    * from an instance of ReadSymptomDataFromFile class called reader
    *
-   * @exception IOException    if there's a problem in reading the file symptoms.txt  
+   * @throws IOException    if there's a problem in reading the file symptoms.txt  
    *     
    * @see    "the ISymptomReader Interface and its implementation in ReadSymptomDataFromFile"
    *
@@ -85,10 +85,10 @@ public class AnalyticsCounter {
    *     and Integer value 1 or an Integer value that represents the total 
    *     of number of occurrences of the symptom 
    * 
-   * @exception NullPointerException    if List String symptoms parameter 
+   * @throws NullPointerException    if List String symptoms parameter 
    *     returns a boolean false with the method isEmpty()
    *  
-   * @exception Exception    if other errors occur when iterating on the List of symptoms,
+   * @throws Exception    if other errors occur when iterating on the List of symptoms,
    *     adding symptoms and its value 1 or value incremented 
    *     of the number of occurrence in the HashMap 
    * 
@@ -133,10 +133,10 @@ public class AnalyticsCounter {
   * @return    a TreeMap "mapSymptomsOccurencesSorted" with the name of symptom as String key 
   *     arranged in alphabetical order
   *  
-  * @exception NullPointerException    if the HashMap symptoms parameter returns a boolean false 
+  * @throws NullPointerException    if the HashMap symptoms parameter returns a boolean false 
   *     with the method isEmpty() 
   * 
-  * @exception Exception    if other errors occur when putting the content of the HashMap symptoms 
+  * @throws Exception    if other errors occur when putting the content of the HashMap symptoms 
   *     in the TreeMap mapSymptomsOccurencesSorted 
   *       
   */

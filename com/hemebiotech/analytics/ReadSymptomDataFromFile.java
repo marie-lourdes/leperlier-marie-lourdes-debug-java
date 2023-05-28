@@ -20,10 +20,15 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
   }
 
   /**
+<<<<<<< HEAD
    * used to read the file symptoms.txt and add all content in List String.
    *
    * @exception IOException    if there's a problem in reading the file symptoms.txt
    * @throws Exception          if the file symptoms.txt is empty 
+=======
+   * used to read the file symptoms.txt and add all content in List String
+   * @throws IOException    if there's a problem in reading the file symptoms.txt
+>>>>>>> parent of 36dd630... replace tag throws in comments javadoc by tag exception
    *
    * @return    a List of all String Symptoms obtained from a data source symptom.txt 
    *     with unique and duplicated symptoms

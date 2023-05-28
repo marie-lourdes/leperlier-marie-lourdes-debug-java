@@ -16,7 +16,7 @@ public interface ISymptomReader {
    * @return    a List unordered of String symptoms,
    *     if no data is available, return an empty List.
    * 
-   * @see    "implemention of the method in ReadSymptomDataFromfile"
+   * @see           "implemention of the method in ReadSymptomDataFromfile"
    */
   List<String> getSymptoms();
 }
