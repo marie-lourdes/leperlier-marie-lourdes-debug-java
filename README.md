@@ -2,7 +2,7 @@
 
 ## Overview ##
 
-The company **Heme Biotech** is part of the pharmaceutical industry: the development of drugs and primarily treats blood disorders in humans and animals
+The company ** Heme Biotech ** is part of the pharmaceutical industry: the development of drugs and primarily treats blood disorders in humans and animals
 To ensure the quality of its products, it collects data from their product: dosages, symptoms, treatment...
 
 The company wants to improve the prediction of drug needs with their customers: doctors and veterinarians using the software.The program:
@@ -14,7 +14,7 @@ The company wants to improve the prediction of drug needs with their customers: 
 
 This file is saved and made available to the company's departments concerned to improve its medicines.
 
-## Prerequisites ##
+## Prerequisite ##
 
 + an IDE such as Eclipse that compiles and runs Java code including other Java development tools 
 + Knowledge of Java and the command line
@@ -39,12 +39,12 @@ You have two possibilities :
  - or compile the code with the command line with the following command to run in your terminal:
  
  ```java
- javac com/hemebiotech/analytics/*.java
+ "javac com/hemebiotech/analytics/*.java"
  ```
  and run the code with the following command:
  
   ```java
- java -cp "." com.hemebiotech.analytics.Main
+ "java -cp "." com.hemebiotech.analytics.Main"
  ```
  
  After running, a file result.out will be created and will contain the symptoms and the number of occurrences of the symptoms that you indicated previously in the file symptoms .txt and in alphabetical order
