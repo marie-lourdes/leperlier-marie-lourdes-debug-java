@@ -14,7 +14,7 @@ The company wants to improve the prediction of drug needs with their customers: 
 
 This file is saved and made available to the company's departments concerned to improve its medicines.
 
-## Prerequisite ##
+## Prerequisites ##
 
 + an IDE such as Eclipse that compiles and runs Java code including other Java development tools 
 + Knowledge of Java and the command line
