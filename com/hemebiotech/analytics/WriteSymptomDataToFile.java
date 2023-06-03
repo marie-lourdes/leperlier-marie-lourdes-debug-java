@@ -23,16 +23,16 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
    *
    * @param symptoms    a TreeMap to iterate on it and write the content in file 
    *    
-   * @throws IOException    if there's a problem in reading the file symptoms.txt
+   * @exception IOException    if there's a problem in reading the file symptoms.txt
    *
-   * @throws FileNotFoundException    if the path of the file return null
+   * @exception FileNotFoundException    if the path of the file return null
    *
-   * @throws NullPointerException    if the TreeMap symptoms parameter 
+   * @exception NullPointerException    if the TreeMap symptoms parameter 
          return false with the method isEmpty
    *
-   * @throws IOException    if the error occurs when writing on the file result.out
+   * @exception IOException    if the error occurs when writing on the file result.out
    *
-   * @throws Exception    if other errors occurs when iterating on the TreeMap 
+   * @exception Exception    if other errors occurs when iterating on the TreeMap 
          and  creating and writing on the file result.out
    *
    * @see    #writeSymptoms()
@@ -99,12 +99,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
       System.err.println("mapSymptomsOccurencesSorted is empty : " + e.getMessage());
       e.printStackTrace();
     } catch (Exception e) {
-      System.err.println("No symptoms listed! maybe:" 
-          + "\n - a possible error of path of the file result.out" 
-          + "\n -or the symptoms.txt file is empty"  
-          + "\n - or there're problems in reading the file symptoms.txt" 
-          + "or in displaying symptoms in the mapSymptomOccurrences : " 
-          + e.getMessage());              
+      System.err.println("an error has occured" + e.getMessage());              
       e.printStackTrace();
     }       
   }
