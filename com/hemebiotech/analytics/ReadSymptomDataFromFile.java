@@ -48,7 +48,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
         reader.close();
         System.out.println("successfully read");
         
-        if(result.isEmpty()) {
+        if (result.isEmpty()) {
           System.err.println("symptoms.txt is empty, no symptoms listed"); 
         }
       } catch (IOException e) {
